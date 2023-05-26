@@ -1,5 +1,6 @@
 package com.jira.api.utils;
 
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;
@@ -74,35 +75,18 @@ public class ApiActions {
 
 
     /**
-     * This method contains POST HTTP request without body.
-     *
-     * @param headerKey   contains header Key
-     * @param headerValue contains header value
-     * @param contentType contains the type of the file
-     * @param endpoints   contains the endpoint
-     */
-    public Response postWithoutBody(String headerKey, String headerValue, String contentType, String endpoints) {
-        return given()
-                .header(headerKey, headerValue)
-                .contentType(contentType)
-                .when()
-                .post(endpoints)
-                .then()
-                .log().body()
-                .extract().response();
-    }
-
-    /**
      * This method contains GET HTTP request
      *
-     * @param categoryKey   contains query parameter key
-     * @param categoryValue contains query parameter value
+     * @param issueKey      contains path parameter key
+     * @param issueKeyValue contains path parameter value
      * @param endpoint      contains the endpoint
+     * @param cookieKey     contains key
+     * @param cookieValue   contains token value.
      */
-    //GET
-    public Response getItemsInStoreByCategory(String categoryKey, String categoryValue, String endpoint) {
+    public Response get(String issueKey, String issueKeyValue, String cookieKey, String cookieValue, String endpoint) {
         return given()
-                .queryParam(categoryKey, categoryValue)
+                .pathParam(issueKey, issueKeyValue)
+                .header(cookieKey, cookieValue)
                 .when()
                 .get(endpoint)
                 .then()
@@ -111,38 +95,22 @@ public class ApiActions {
                 .response();
     }
 
-    /**
-     * This method contains GET HTTP request
-     *
-     * @param endpoint contains the endpoint
-     */
-    public Response get(String endpoint) {
+    public Response put(String issueKey, String issueKeyValue, String commentKey, int commentKeyValue,
+                        String cookieKey, String cookieValue, Object payload, String endpoint) {
         return given()
+                .pathParam(issueKey, issueKeyValue)
+                .pathParam(commentKey, commentKeyValue)
+                .header(cookieKey, cookieValue)
+                .contentType(ContentType.JSON)
+                .body(payload)
                 .when()
-                .get(endpoint)
+                .put(endpoint)
                 .then()
                 .log().body()
                 .extract()
                 .response();
     }
 
-    /**
-     * This method contains GET HTTP request
-     *
-     * @param cartId      contains path parameter key
-     * @param cartIdValue contains path parameter value
-     * @param endpoint    contains the endpoint
-     */
-    public Response getCartItems(String cartId, String cartIdValue, String endpoint) {
-        return given()
-                .pathParam(cartId, cartIdValue)
-                .when()
-                .get(endpoint)
-                .then()
-                .log().body()
-                .extract()
-                .response();
-    }
 
     /**
      * This method contains POST HTTP request

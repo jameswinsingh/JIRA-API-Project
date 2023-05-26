@@ -8,6 +8,7 @@ import com.jira.api.message.VerificationMessage;
 import com.jira.api.pojo.build.BuildAddCommentRequestPayload;
 import com.jira.api.pojo.build.BuildCreateIssueRequestPayload;
 import com.jira.api.pojo.build.BuildLoginRequestPayload;
+import com.jira.api.pojo.build.CreateModifyCommentRequestPayload;
 import com.jira.api.pojo.dto.CreateIssueResponseData;
 import com.jira.api.pojo.dto.loginResponseData.LoginResponseData;
 import com.jira.api.testdata.Endpoint;
@@ -16,24 +17,23 @@ import com.jira.api.utils.ApiActions;
 import com.jira.api.utils.JsonSchemaValidator;
 import com.jira.api.utils.PropertyParser;
 import com.relevantcodes.extentreports.ExtentTest;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import org.testng.Assert;
 
-public class Login {
+
+public class JiraApiValidation {
 
     ExtentTest report;
 
     PropertyParser getTestData = new PropertyParser(FilePathConstant.TEST_DATA_FILEPATH);
 
-    public Login(ExtentTest report) {
+    public JiraApiValidation(ExtentTest report) {
         this.report = report;
     }
 
     ApiActions apiActions = new ApiActions();
-    String token;
-    String issueKeyValue;
 
-    public void login() {
+    public String login() {
 
         String headerKey = SpecificationConstant.CONNECTION_KEY;
         String headerValue = SpecificationConstant.CONNECTION_VALUE;
@@ -49,11 +49,11 @@ public class Login {
                 Endpoint.LOGIN_ENDPOINT
         );
 
-        boolean responseSchema = JsonSchemaValidator.validateJsonSchema(response,FilePathConstant.LOGIN_SCHEMA_FILEPATH);
+        boolean responseSchema = JsonSchemaValidator.validateJsonSchema(response, FilePathConstant.LOGIN_SCHEMA_FILEPATH);
         LoginResponseData loginResponse = response.as(LoginResponseData.class);
         String name = loginResponse.getSession().getName();
         String value = loginResponse.getSession().getValue();
-        token = name + "=" + value;
+        String token = name + "=" + value;
         int statusCode = response.getStatusCode();
         String actualTokenName = loginResponse.getSession().getName();
         boolean tokenIsNotEmpty = !loginResponse.getSession().getValue().isEmpty();
@@ -62,10 +62,12 @@ public class Login {
         Assertion.verifyStatusCode(statusCode, StatusCodeConstant.STATUSC0DE_200, VerificationMessage.VERIFY_STATUS_CODE, report);
         Assertion.verifyBooleanValue(responseSchema, true, jsonSchemaMessage, report);
         Assertion.verifyString(actualTokenName, expectedTokenName, tokenNameMessage, report);
-        Assertion.verifyBooleanValue(tokenIsNotEmpty, true,tokenValueMessage, report);
+        Assertion.verifyBooleanValue(tokenIsNotEmpty, true, tokenValueMessage, report);
+
+        return token;
     }
 
-    public void createNewIssue() {
+    public String createNewIssue(String token) {
         String headerKey = SpecificationConstant.CONNECTION_KEY;
         String headerValue = SpecificationConstant.CONNECTION_VALUE;
         String cookieKey = SpecificationConstant.COOKIE_KEY;
@@ -79,29 +81,73 @@ public class Login {
         );
 
         CreateIssueResponseData createIssueResponse = response.as(CreateIssueResponseData.class);
-        issueKeyValue = createIssueResponse.getKey();
+        return createIssueResponse.getKey();
     }
 
 
-    public void addCommentToTheIssue() {
-        String issueKey = getTestData.getPropertyValue(TestData.ISSUE_KEY);
+    public int addCommentToTheIssue(String token, String issueKey) {
+        String key = getTestData.getPropertyValue(TestData.ISSUE_KEY);
         String contentTypeKey = SpecificationConstant.CONTENT_TYPE_KEY;
         String contentTypeValue = SpecificationConstant.CONTENT_TYPE_VALUE;
         String cookieKey = SpecificationConstant.COOKIE_KEY;
 
-        Response response = apiActions.addComment(issueKey, "RA-8",
+        Response response = apiActions.addComment(key, issueKey,
                 contentTypeKey, contentTypeValue,
                 cookieKey, token,
                 BuildAddCommentRequestPayload.addCommentPayload(),
                 Endpoint.ADD_COMMENT_ENDPOINT
         );
 
-        boolean responseSchema = JsonSchemaValidator.validateJsonSchema(response,FilePathConstant.ADD_COMMENT_SCHEMA_FILEPATH);
+        JsonPath jsonPath = new JsonPath(response.asString());
+        int commentId = jsonPath.getInt("id");
 
+        int actualStatusCode = response.getStatusCode();
+        int expectedStatusCode = StatusCodeConstant.STATUSC0DE_201;
+        boolean responseSchema = JsonSchemaValidator.validateJsonSchema(response, FilePathConstant.ADD_COMMENT_SCHEMA_FILEPATH);
 
-        Assertion.verifyBooleanValue(responseSchema,true, VerificationMessage.VERIFY_JSON_SCHEMA, report);
+        Assertion.verifyStatusCode(actualStatusCode, expectedStatusCode, VerificationMessage.VERIFY_STATUS_CODE, report);
+        Assertion.verifyBooleanValue(responseSchema, true, VerificationMessage.VERIFY_JSON_SCHEMA, report);
 
+        return commentId;
 
     }
 
+    public void getCreatedIssue(String token, String issueKey) {
+        String key = getTestData.getPropertyValue(TestData.ISSUE_KEY);
+        String cookieKey = SpecificationConstant.COOKIE_KEY;
+        String endpoint = Endpoint.GET_ISSUE_ENDPOINT;
+
+        Response response = apiActions.get(key, issueKey,
+                cookieKey, token,
+                endpoint
+        );
+
+        boolean getIssueSchema = JsonSchemaValidator.validateJsonSchema(response, FilePathConstant.GET_ISSUE_SCHEMA_FILEPATH);
+        int actualStatusCode = response.getStatusCode();
+        int expectedStatusCode = StatusCodeConstant.STATUSC0DE_200;
+
+        Assertion.verifyStatusCode(actualStatusCode, expectedStatusCode, VerificationMessage.VERIFY_STATUS_CODE, report);
+        Assertion.verifyBooleanValue(getIssueSchema, true, VerificationMessage.VERIFY_JSON_SCHEMA, report);
+
+    }
+
+
+    public void modifyComment(String token, String issueKey, int commentId) {
+        String key = getTestData.getPropertyValue(TestData.ISSUE_KEY);
+        String commentKey = getTestData.getPropertyValue(TestData.COMMENT_KEY);
+        String cookieKey = SpecificationConstant.COOKIE_KEY;
+        String endpoint = Endpoint.UPDATE_COMMENT_ENDPOINT;
+
+
+        Response response = apiActions.put(key, issueKey,
+                commentKey, commentId,
+                cookieKey, token,
+                CreateModifyCommentRequestPayload.modifyCommentRequestData(),
+                endpoint
+        );
+
+        int actualStatusCode = response.getStatusCode();
+        Assertion.verifyStatusCode(actualStatusCode, StatusCodeConstant.STATUSC0DE_200, VerificationMessage.VERIFY_STATUS_CODE, report);
+
+    }
 }

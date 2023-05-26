@@ -1,0 +1,593 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "expand": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    },
+    "self": {
+      "type": "string"
+    },
+    "key": {
+      "type": "string"
+    },
+    "fields": {
+      "type": "object",
+      "properties": {
+        "issuetype": {
+          "type": "object",
+          "properties": {
+            "self": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "iconUrl": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "subtask": {
+              "type": "boolean"
+            },
+            "avatarId": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "self",
+            "id",
+            "description",
+            "iconUrl",
+            "name",
+            "subtask",
+            "avatarId"
+          ]
+        },
+        "timespent": {
+          "type": "null"
+        },
+        "project": {
+          "type": "object",
+          "properties": {
+            "self": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "key": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "projectTypeKey": {
+              "type": "string"
+            },
+            "avatarUrls": {
+              "type": "object",
+              "properties": {
+                "48x48": {
+                  "type": "string"
+                },
+                "24x24": {
+                  "type": "string"
+                },
+                "16x16": {
+                  "type": "string"
+                },
+                "32x32": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "48x48",
+                "24x24",
+                "16x16",
+                "32x32"
+              ]
+            }
+          },
+          "required": [
+            "self",
+            "id",
+            "key",
+            "name",
+            "projectTypeKey",
+            "avatarUrls"
+          ]
+        },
+        "fixVersions": {
+          "type": "array",
+          "items": {}
+        },
+        "customfield_10110": {
+          "type": "null"
+        },
+        "aggregatetimespent": {
+          "type": "null"
+        },
+        "resolution": {
+          "type": "null"
+        },
+        "customfield_10104": {
+          "type": "null"
+        },
+        "customfield_10108": {
+          "type": "string"
+        },
+        "customfield_10109": {
+          "type": "null"
+        },
+        "resolutiondate": {
+          "type": "null"
+        },
+        "workratio": {
+          "type": "integer"
+        },
+        "lastViewed": {
+          "type": "null"
+        },
+        "watches": {
+          "type": "object",
+          "properties": {
+            "self": {
+              "type": "string"
+            },
+            "watchCount": {
+              "type": "integer"
+            },
+            "isWatching": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "self",
+            "watchCount",
+            "isWatching"
+          ]
+        },
+        "created": {
+          "type": "string"
+        },
+        "priority": {
+          "type": "object",
+          "properties": {
+            "self": {
+              "type": "string"
+            },
+            "iconUrl": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "self",
+            "iconUrl",
+            "name",
+            "id"
+          ]
+        },
+        "customfield_10100": {
+          "type": "null"
+        },
+        "customfield_10101": {
+          "type": "null"
+        },
+        "customfield_10102": {
+          "type": "null"
+        },
+        "labels": {
+          "type": "array",
+          "items": {}
+        },
+        "customfield_10103": {
+          "type": "null"
+        },
+        "timeestimate": {
+          "type": "null"
+        },
+        "aggregatetimeoriginalestimate": {
+          "type": "null"
+        },
+        "versions": {
+          "type": "array",
+          "items": {}
+        },
+        "issuelinks": {
+          "type": "array",
+          "items": {}
+        },
+        "assignee": {
+          "type": "null"
+        },
+        "updated": {
+          "type": "string"
+        },
+        "status": {
+          "type": "object",
+          "properties": {
+            "self": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "iconUrl": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "statusCategory": {
+              "type": "object",
+              "properties": {
+                "self": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "integer"
+                },
+                "key": {
+                  "type": "string"
+                },
+                "colorName": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "self",
+                "id",
+                "key",
+                "colorName",
+                "name"
+              ]
+            }
+          },
+          "required": [
+            "self",
+            "description",
+            "iconUrl",
+            "name",
+            "id",
+            "statusCategory"
+          ]
+        },
+        "components": {
+          "type": "array",
+          "items": {}
+        },
+        "timeoriginalestimate": {
+          "type": "null"
+        },
+        "description": {
+          "type": "string"
+        },
+        "timetracking": {
+          "type": "object"
+        },
+        "archiveddate": {
+          "type": "null"
+        },
+        "attachment": {
+          "type": "array",
+          "items": {}
+        },
+        "aggregatetimeestimate": {
+          "type": "null"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "creator": {
+          "type": "object",
+          "properties": {
+            "self": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "key": {
+              "type": "string"
+            },
+            "emailAddress": {
+              "type": "string"
+            },
+            "avatarUrls": {
+              "type": "object",
+              "properties": {
+                "48x48": {
+                  "type": "string"
+                },
+                "24x24": {
+                  "type": "string"
+                },
+                "16x16": {
+                  "type": "string"
+                },
+                "32x32": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "48x48",
+                "24x24",
+                "16x16",
+                "32x32"
+              ]
+            },
+            "displayName": {
+              "type": "string"
+            },
+            "active": {
+              "type": "boolean"
+            },
+            "timeZone": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "self",
+            "name",
+            "key",
+            "emailAddress",
+            "avatarUrls",
+            "displayName",
+            "active",
+            "timeZone"
+          ]
+        },
+        "subtasks": {
+          "type": "array",
+          "items": {}
+        },
+        "reporter": {
+          "type": "object",
+          "properties": {
+            "self": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "key": {
+              "type": "string"
+            },
+            "emailAddress": {
+              "type": "string"
+            },
+            "avatarUrls": {
+              "type": "object",
+              "properties": {
+                "48x48": {
+                  "type": "string"
+                },
+                "24x24": {
+                  "type": "string"
+                },
+                "16x16": {
+                  "type": "string"
+                },
+                "32x32": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "48x48",
+                "24x24",
+                "16x16",
+                "32x32"
+              ]
+            },
+            "displayName": {
+              "type": "string"
+            },
+            "active": {
+              "type": "boolean"
+            },
+            "timeZone": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "self",
+            "name",
+            "key",
+            "emailAddress",
+            "avatarUrls",
+            "displayName",
+            "active",
+            "timeZone"
+          ]
+        },
+        "customfield_10000": {
+          "type": "string"
+        },
+        "aggregateprogress": {
+          "type": "object",
+          "properties": {
+            "progress": {
+              "type": "integer"
+            },
+            "total": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "progress",
+            "total"
+          ]
+        },
+        "environment": {
+          "type": "null"
+        },
+        "duedate": {
+          "type": "null"
+        },
+        "progress": {
+          "type": "object",
+          "properties": {
+            "progress": {
+              "type": "integer"
+            },
+            "total": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "progress",
+            "total"
+          ]
+        },
+        "comment": {
+          "type": "object",
+          "properties": {
+            "comments": {
+              "type": "array",
+              "items": {}
+            },
+            "maxResults": {
+              "type": "integer"
+            },
+            "total": {
+              "type": "integer"
+            },
+            "startAt": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "comments",
+            "maxResults",
+            "total",
+            "startAt"
+          ]
+        },
+        "votes": {
+          "type": "object",
+          "properties": {
+            "self": {
+              "type": "string"
+            },
+            "votes": {
+              "type": "integer"
+            },
+            "hasVoted": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "self",
+            "votes",
+            "hasVoted"
+          ]
+        },
+        "worklog": {
+          "type": "object",
+          "properties": {
+            "startAt": {
+              "type": "integer"
+            },
+            "maxResults": {
+              "type": "integer"
+            },
+            "total": {
+              "type": "integer"
+            },
+            "worklogs": {
+              "type": "array",
+              "items": {}
+            }
+          },
+          "required": [
+            "startAt",
+            "maxResults",
+            "total",
+            "worklogs"
+          ]
+        },
+        "archivedby": {
+          "type": "null"
+        }
+      },
+      "required": [
+        "issuetype",
+        "timespent",
+        "project",
+        "fixVersions",
+        "customfield_10110",
+        "aggregatetimespent",
+        "resolution",
+        "customfield_10104",
+        "customfield_10108",
+        "customfield_10109",
+        "resolutiondate",
+        "workratio",
+        "lastViewed",
+        "watches",
+        "created",
+        "priority",
+        "customfield_10100",
+        "customfield_10101",
+        "customfield_10102",
+        "labels",
+        "customfield_10103",
+        "timeestimate",
+        "aggregatetimeoriginalestimate",
+        "versions",
+        "issuelinks",
+        "assignee",
+        "updated",
+        "status",
+        "components",
+        "timeoriginalestimate",
+        "description",
+        "timetracking",
+        "archiveddate",
+        "attachment",
+        "aggregatetimeestimate",
+        "summary",
+        "creator",
+        "subtasks",
+        "reporter",
+        "customfield_10000",
+        "aggregateprogress",
+        "environment",
+        "duedate",
+        "progress",
+        "comment",
+        "votes",
+        "worklog",
+        "archivedby"
+      ]
+    }
+  },
+  "required": [
+    "expand",
+    "id",
+    "self",
+    "key",
+    "fields"
+  ]
+}
