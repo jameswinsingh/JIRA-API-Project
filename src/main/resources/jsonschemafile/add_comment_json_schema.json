@@ -1,0 +1,164 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "self": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    },
+    "author": {
+      "type": "object",
+      "properties": {
+        "self": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "key": {
+          "type": "string"
+        },
+        "emailAddress": {
+          "type": "string"
+        },
+        "avatarUrls": {
+          "type": "object",
+          "properties": {
+            "48x48": {
+              "type": "string"
+            },
+            "24x24": {
+              "type": "string"
+            },
+            "16x16": {
+              "type": "string"
+            },
+            "32x32": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "48x48",
+            "24x24",
+            "16x16",
+            "32x32"
+          ]
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "timeZone": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "self",
+        "name",
+        "key",
+        "emailAddress",
+        "avatarUrls",
+        "displayName",
+        "active",
+        "timeZone"
+      ]
+    },
+    "body": {
+      "type": "string"
+    },
+    "updateAuthor": {
+      "type": "object",
+      "properties": {
+        "self": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "key": {
+          "type": "string"
+        },
+        "emailAddress": {
+          "type": "string"
+        },
+        "avatarUrls": {
+          "type": "object",
+          "properties": {
+            "48x48": {
+              "type": "string"
+            },
+            "24x24": {
+              "type": "string"
+            },
+            "16x16": {
+              "type": "string"
+            },
+            "32x32": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "48x48",
+            "24x24",
+            "16x16",
+            "32x32"
+          ]
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "timeZone": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "self",
+        "name",
+        "key",
+        "emailAddress",
+        "avatarUrls",
+        "displayName",
+        "active",
+        "timeZone"
+      ]
+    },
+    "created": {
+      "type": "string"
+    },
+    "updated": {
+      "type": "string"
+    },
+    "visibility": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    }
+  },
+  "required": [
+    "self",
+    "id",
+    "author",
+    "body",
+    "updateAuthor",
+    "created",
+    "updated",
+    "visibility"
+  ]
+}
