@@ -19,6 +19,8 @@ public class FilePathConstant {
     public static final String LOGIN_SCHEMA_FILEPATH = JSON_SCHEMA + "login_response_json_Schema.json";
     public static final String ADD_COMMENT_SCHEMA_FILEPATH = JSON_SCHEMA + "add_comment_json_schema.json";
     public static final String GET_ISSUE_SCHEMA_FILEPATH = JSON_SCHEMA + "get_issue_response_json_schema.json";
+    public static final String UPDATE_COMMENT_SCHEMA_FILEPATH = JSON_SCHEMA + "update_comment_json_schema.json";
+    public static final String GET_COMMENT_SCHEMA_FILEPATH = JSON_SCHEMA + "get_comment_json_schema.json";
 
 
 }

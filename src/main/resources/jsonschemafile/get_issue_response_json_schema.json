@@ -1,5 +1,6 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://docs.atlassian.com/jira/REST/schema/issue#",
+  "title": "Issue",
   "type": "object",
   "properties": {
     "expand": {
@@ -9,585 +10,486 @@
       "type": "string"
     },
     "self": {
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     },
     "key": {
       "type": "string"
     },
     "fields": {
       "type": "object",
+      "patternProperties": {
+        ".+": {}
+      },
+      "additionalProperties": false
+    },
+    "renderedFields": {
+      "type": "object",
+      "patternProperties": {
+        ".+": {}
+      },
+      "additionalProperties": false
+    },
+    "properties": {
+      "title": "Properties",
+      "type": "object",
       "properties": {
-        "issuetype": {
+        "properties": {
           "type": "object",
-          "properties": {
-            "self": {
-              "type": "string"
-            },
-            "id": {
-              "type": "string"
-            },
-            "description": {
-              "type": "string"
-            },
-            "iconUrl": {
-              "type": "string"
-            },
-            "name": {
-              "type": "string"
-            },
-            "subtask": {
-              "type": "boolean"
-            },
-            "avatarId": {
-              "type": "integer"
-            }
-          },
-          "required": [
-            "self",
-            "id",
-            "description",
-            "iconUrl",
-            "name",
-            "subtask",
-            "avatarId"
-          ]
-        },
-        "timespent": {
-          "type": "null"
-        },
-        "project": {
-          "type": "object",
-          "properties": {
-            "self": {
-              "type": "string"
-            },
-            "id": {
-              "type": "string"
-            },
-            "key": {
-              "type": "string"
-            },
-            "name": {
-              "type": "string"
-            },
-            "projectTypeKey": {
-              "type": "string"
-            },
-            "avatarUrls": {
-              "type": "object",
-              "properties": {
-                "48x48": {
-                  "type": "string"
-                },
-                "24x24": {
-                  "type": "string"
-                },
-                "16x16": {
-                  "type": "string"
-                },
-                "32x32": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "48x48",
-                "24x24",
-                "16x16",
-                "32x32"
-              ]
-            }
-          },
-          "required": [
-            "self",
-            "id",
-            "key",
-            "name",
-            "projectTypeKey",
-            "avatarUrls"
-          ]
-        },
-        "fixVersions": {
-          "type": "array",
-          "items": {}
-        },
-        "customfield_10110": {
-          "type": "null"
-        },
-        "aggregatetimespent": {
-          "type": "null"
-        },
-        "resolution": {
-          "type": "null"
-        },
-        "customfield_10104": {
-          "type": "null"
-        },
-        "customfield_10108": {
-          "type": "string"
-        },
-        "customfield_10109": {
-          "type": "null"
-        },
-        "resolutiondate": {
-          "type": "null"
-        },
-        "workratio": {
-          "type": "integer"
-        },
-        "lastViewed": {
-          "type": "null"
-        },
-        "watches": {
-          "type": "object",
-          "properties": {
-            "self": {
-              "type": "string"
-            },
-            "watchCount": {
-              "type": "integer"
-            },
-            "isWatching": {
-              "type": "boolean"
-            }
-          },
-          "required": [
-            "self",
-            "watchCount",
-            "isWatching"
-          ]
-        },
-        "created": {
-          "type": "string"
-        },
-        "priority": {
-          "type": "object",
-          "properties": {
-            "self": {
-              "type": "string"
-            },
-            "iconUrl": {
-              "type": "string"
-            },
-            "name": {
-              "type": "string"
-            },
-            "id": {
+          "patternProperties": {
+            ".+": {
               "type": "string"
             }
           },
-          "required": [
-            "self",
-            "iconUrl",
-            "name",
-            "id"
-          ]
-        },
-        "customfield_10100": {
-          "type": "null"
-        },
-        "customfield_10101": {
-          "type": "null"
-        },
-        "customfield_10102": {
-          "type": "null"
-        },
-        "labels": {
-          "type": "array",
-          "items": {}
-        },
-        "customfield_10103": {
-          "type": "null"
-        },
-        "timeestimate": {
-          "type": "null"
-        },
-        "aggregatetimeoriginalestimate": {
-          "type": "null"
-        },
-        "versions": {
-          "type": "array",
-          "items": {}
-        },
-        "issuelinks": {
-          "type": "array",
-          "items": {}
-        },
-        "assignee": {
-          "type": "null"
-        },
-        "updated": {
-          "type": "string"
-        },
-        "status": {
-          "type": "object",
-          "properties": {
-            "self": {
-              "type": "string"
-            },
-            "description": {
-              "type": "string"
-            },
-            "iconUrl": {
-              "type": "string"
-            },
-            "name": {
-              "type": "string"
-            },
-            "id": {
-              "type": "string"
-            },
-            "statusCategory": {
-              "type": "object",
-              "properties": {
-                "self": {
-                  "type": "string"
-                },
-                "id": {
-                  "type": "integer"
-                },
-                "key": {
-                  "type": "string"
-                },
-                "colorName": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "self",
-                "id",
-                "key",
-                "colorName",
-                "name"
-              ]
-            }
-          },
-          "required": [
-            "self",
-            "description",
-            "iconUrl",
-            "name",
-            "id",
-            "statusCategory"
-          ]
-        },
-        "components": {
-          "type": "array",
-          "items": {}
-        },
-        "timeoriginalestimate": {
-          "type": "null"
-        },
-        "description": {
-          "type": "string"
-        },
-        "timetracking": {
-          "type": "object"
-        },
-        "archiveddate": {
-          "type": "null"
-        },
-        "attachment": {
-          "type": "array",
-          "items": {}
-        },
-        "aggregatetimeestimate": {
-          "type": "null"
-        },
-        "summary": {
-          "type": "string"
-        },
-        "creator": {
-          "type": "object",
-          "properties": {
-            "self": {
-              "type": "string"
-            },
-            "name": {
-              "type": "string"
-            },
-            "key": {
-              "type": "string"
-            },
-            "emailAddress": {
-              "type": "string"
-            },
-            "avatarUrls": {
-              "type": "object",
-              "properties": {
-                "48x48": {
-                  "type": "string"
-                },
-                "24x24": {
-                  "type": "string"
-                },
-                "16x16": {
-                  "type": "string"
-                },
-                "32x32": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "48x48",
-                "24x24",
-                "16x16",
-                "32x32"
-              ]
-            },
-            "displayName": {
-              "type": "string"
-            },
-            "active": {
-              "type": "boolean"
-            },
-            "timeZone": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "self",
-            "name",
-            "key",
-            "emailAddress",
-            "avatarUrls",
-            "displayName",
-            "active",
-            "timeZone"
-          ]
-        },
-        "subtasks": {
-          "type": "array",
-          "items": {}
-        },
-        "reporter": {
-          "type": "object",
-          "properties": {
-            "self": {
-              "type": "string"
-            },
-            "name": {
-              "type": "string"
-            },
-            "key": {
-              "type": "string"
-            },
-            "emailAddress": {
-              "type": "string"
-            },
-            "avatarUrls": {
-              "type": "object",
-              "properties": {
-                "48x48": {
-                  "type": "string"
-                },
-                "24x24": {
-                  "type": "string"
-                },
-                "16x16": {
-                  "type": "string"
-                },
-                "32x32": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "48x48",
-                "24x24",
-                "16x16",
-                "32x32"
-              ]
-            },
-            "displayName": {
-              "type": "string"
-            },
-            "active": {
-              "type": "boolean"
-            },
-            "timeZone": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "self",
-            "name",
-            "key",
-            "emailAddress",
-            "avatarUrls",
-            "displayName",
-            "active",
-            "timeZone"
-          ]
-        },
-        "customfield_10000": {
-          "type": "string"
-        },
-        "aggregateprogress": {
-          "type": "object",
-          "properties": {
-            "progress": {
-              "type": "integer"
-            },
-            "total": {
-              "type": "integer"
-            }
-          },
-          "required": [
-            "progress",
-            "total"
-          ]
-        },
-        "environment": {
-          "type": "null"
-        },
-        "duedate": {
-          "type": "null"
-        },
-        "progress": {
-          "type": "object",
-          "properties": {
-            "progress": {
-              "type": "integer"
-            },
-            "total": {
-              "type": "integer"
-            }
-          },
-          "required": [
-            "progress",
-            "total"
-          ]
-        },
-        "comment": {
-          "type": "object",
-          "properties": {
-            "comments": {
-              "type": "array",
-              "items": {}
-            },
-            "maxResults": {
-              "type": "integer"
-            },
-            "total": {
-              "type": "integer"
-            },
-            "startAt": {
-              "type": "integer"
-            }
-          },
-          "required": [
-            "comments",
-            "maxResults",
-            "total",
-            "startAt"
-          ]
-        },
-        "votes": {
-          "type": "object",
-          "properties": {
-            "self": {
-              "type": "string"
-            },
-            "votes": {
-              "type": "integer"
-            },
-            "hasVoted": {
-              "type": "boolean"
-            }
-          },
-          "required": [
-            "self",
-            "votes",
-            "hasVoted"
-          ]
-        },
-        "worklog": {
-          "type": "object",
-          "properties": {
-            "startAt": {
-              "type": "integer"
-            },
-            "maxResults": {
-              "type": "integer"
-            },
-            "total": {
-              "type": "integer"
-            },
-            "worklogs": {
-              "type": "array",
-              "items": {}
-            }
-          },
-          "required": [
-            "startAt",
-            "maxResults",
-            "total",
-            "worklogs"
-          ]
-        },
-        "archivedby": {
-          "type": "null"
+          "additionalProperties": false
         }
       },
-      "required": [
-        "issuetype",
-        "timespent",
-        "project",
-        "fixVersions",
-        "customfield_10110",
-        "aggregatetimespent",
-        "resolution",
-        "customfield_10104",
-        "customfield_10108",
-        "customfield_10109",
-        "resolutiondate",
-        "workratio",
-        "lastViewed",
-        "watches",
-        "created",
-        "priority",
-        "customfield_10100",
-        "customfield_10101",
-        "customfield_10102",
-        "labels",
-        "customfield_10103",
-        "timeestimate",
-        "aggregatetimeoriginalestimate",
-        "versions",
-        "issuelinks",
-        "assignee",
-        "updated",
-        "status",
-        "components",
-        "timeoriginalestimate",
-        "description",
-        "timetracking",
-        "archiveddate",
-        "attachment",
-        "aggregatetimeestimate",
-        "summary",
-        "creator",
-        "subtasks",
-        "reporter",
-        "customfield_10000",
-        "aggregateprogress",
-        "environment",
-        "duedate",
-        "progress",
-        "comment",
-        "votes",
-        "worklog",
-        "archivedby"
-      ]
+      "additionalProperties": false
+    },
+    "names": {
+      "type": "object",
+      "patternProperties": {
+        ".+": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "schema": {
+      "type": "object",
+      "patternProperties": {
+        ".+": {
+          "$ref": "#/definitions/json-type"
+        }
+      },
+      "additionalProperties": false
+    },
+    "transitions": {
+      "type": "array",
+      "items": {
+        "title": "Transition",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "opsbarSequence": {
+            "type": "integer"
+          },
+          "to": {
+            "title": "Status",
+            "type": "object",
+            "properties": {
+              "self": {
+                "type": "string"
+              },
+              "statusColor": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "iconUrl": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "statusCategory": {
+                "title": "Status Category",
+                "type": "object",
+                "properties": {
+                  "self": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "integer"
+                  },
+                  "key": {
+                    "type": "string"
+                  },
+                  "colorName": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
+          },
+          "fields": {
+            "type": "object",
+            "patternProperties": {
+              ".+": {
+                "$ref": "#/definitions/field-meta"
+              }
+            },
+            "additionalProperties": false
+          },
+          "expand": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "operations": {
+      "title": "Opsbar",
+      "type": "object",
+      "properties": {
+        "linkGroups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/link-group"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "editmeta": {
+      "title": "Edit Meta",
+      "type": "object",
+      "properties": {
+        "fields": {
+          "type": "object",
+          "patternProperties": {
+            ".+": {
+              "$ref": "#/definitions/field-meta"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "changelog": {
+      "title": "Changelog",
+      "type": "object",
+      "properties": {
+        "startAt": {
+          "type": "integer"
+        },
+        "maxResults": {
+          "type": "integer"
+        },
+        "total": {
+          "type": "integer"
+        },
+        "histories": {
+          "type": "array",
+          "items": {
+            "title": "Change History",
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "author": {
+                "title": "User",
+                "type": "object",
+                "properties": {
+                  "self": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "key": {
+                    "type": "string"
+                  },
+                  "emailAddress": {
+                    "type": "string"
+                  },
+                  "avatarUrls": {
+                    "type": "object",
+                    "patternProperties": {
+                      ".+": {
+                        "type": "string"
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "displayName": {
+                    "type": "string"
+                  },
+                  "active": {
+                    "type": "boolean"
+                  },
+                  "timeZone": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "active"
+                ]
+              },
+              "created": {
+                "type": "string"
+              },
+              "items": {
+                "type": "array",
+                "items": {
+                  "title": "Change Item",
+                  "type": "object",
+                  "properties": {
+                    "field": {
+                      "type": "string"
+                    },
+                    "fieldtype": {
+                      "type": "string"
+                    },
+                    "from": {
+                      "type": "string"
+                    },
+                    "fromString": {
+                      "type": "string"
+                    },
+                    "to": {
+                      "type": "string"
+                    },
+                    "toString": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "historyMetadata": {
+                "title": "History Metadata",
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "descriptionKey": {
+                    "type": "string"
+                  },
+                  "activityDescription": {
+                    "type": "string"
+                  },
+                  "activityDescriptionKey": {
+                    "type": "string"
+                  },
+                  "emailDescription": {
+                    "type": "string"
+                  },
+                  "emailDescriptionKey": {
+                    "type": "string"
+                  },
+                  "actor": {
+                    "$ref": "#/definitions/history-metadata-participant"
+                  },
+                  "generator": {
+                    "$ref": "#/definitions/history-metadata-participant"
+                  },
+                  "cause": {
+                    "$ref": "#/definitions/history-metadata-participant"
+                  },
+                  "extraData": {
+                    "type": "object",
+                    "patternProperties": {
+                      ".+": {
+                        "type": "string"
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "versionedRepresentations": {
+      "type": "object",
+      "patternProperties": {
+        ".+": {
+          "type": "object",
+          "patternProperties": {
+            ".+": {}
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "fieldsToInclude": {
+      "title": "Included Fields",
+      "type": "object"
     }
   },
-  "required": [
-    "expand",
-    "id",
-    "self",
-    "key",
-    "fields"
-  ]
+  "definitions": {
+    "field-meta": {
+      "title": "Field Meta",
+      "type": "object",
+      "properties": {
+        "required": {
+          "type": "boolean"
+        },
+        "schema": {
+          "$ref": "#/definitions/json-type"
+        },
+        "name": {
+          "type": "string"
+        },
+        "fieldId": {
+          "type": "string"
+        },
+        "autoCompleteUrl": {
+          "type": "string"
+        },
+        "hasDefaultValue": {
+          "type": "boolean"
+        },
+        "operations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "allowedValues": {
+          "type": "array",
+          "items": {}
+        },
+        "defaultValue": {}
+      },
+      "additionalProperties": false,
+      "required": [
+        "required"
+      ]
+    },
+    "history-metadata-participant": {
+      "title": "History Metadata Participant",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "displayNameKey": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "avatarUrl": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "json-type": {
+      "title": "Json Type",
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "items": {
+          "type": "string"
+        },
+        "system": {
+          "type": "string"
+        },
+        "custom": {
+          "type": "string"
+        },
+        "customId": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "link-group": {
+      "title": "Link Group",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "styleClass": {
+          "type": "string"
+        },
+        "header": {
+          "$ref": "#/definitions/simple-link"
+        },
+        "weight": {
+          "type": "integer"
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/simple-link"
+          }
+        },
+        "groups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/link-group"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "simple-link": {
+      "title": "Simple Link",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "styleClass": {
+          "type": "string"
+        },
+        "iconClass": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "href": {
+          "type": "string"
+        },
+        "weight": {
+          "type": "integer"
+        },
+        "params": {
+          "type": "object",
+          "patternProperties": {
+            ".+": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
 }

@@ -20,7 +20,8 @@ public class ApiActions {
      * @param requestBody contains the request body
      */
     public Response post(String headerKey,
-                         String headerValue, String contentType, Object requestBody, String endpoints) {
+                         String headerValue, String contentType,
+                         Object requestBody, String endpoints) {
         return given()
                 .header(headerKey, headerValue)
                 .contentType(contentType)
@@ -43,7 +44,8 @@ public class ApiActions {
      * @param requestBody contains the request body
      */
     public Response post(String headerKey,
-                         String headerValue, String cookieKey, String cookieValue, String contentType, Object requestBody, String endpoints) {
+                         String headerValue, String cookieKey, String cookieValue,
+                         String contentType, Object requestBody, String endpoints) {
         return given()
                 .header(headerKey, headerValue)
                 .header(cookieKey, cookieValue)
@@ -95,6 +97,33 @@ public class ApiActions {
                 .response();
     }
 
+    /**
+     * This method contain the get method to get comment API
+     * @param issueKey
+     * @param issueKeyValue
+     * @param commentKey
+     * @param commentKeyValue
+     * @param cookieKey
+     * @param cookieValue
+     * @param endpoint
+     * @return
+     */
+    public Response get(String issueKey, String issueKeyValue, String commentKey, int commentKeyValue,
+                        String cookieKey, String cookieValue, String endpoint) {
+        return given()
+                .pathParam(issueKey, issueKeyValue)
+                .pathParam(commentKey, commentKeyValue)
+                .header(cookieKey, cookieValue)
+                .contentType(ContentType.JSON)
+                .when()
+                .get(endpoint)
+                .then()
+                .log().body()
+                .extract()
+                .response();
+    }
+
+
     public Response put(String issueKey, String issueKeyValue, String commentKey, int commentKeyValue,
                         String cookieKey, String cookieValue, Object payload, String endpoint) {
         return given()
@@ -110,7 +139,6 @@ public class ApiActions {
                 .extract()
                 .response();
     }
-
 
     /**
      * This method contains POST HTTP request
@@ -132,6 +160,53 @@ public class ApiActions {
                 .body(body)
                 .when()
                 .patch(endpoint)
+                .then()
+                .log().body()
+                .extract()
+                .response();
+    }
+
+    /**
+     * This method contain the delete method to delete comment
+     * @param issueKey
+     * @param issueKeyValue
+     * @param commentKey
+     * @param commentKeyValue
+     * @param cookieKey
+     * @param cookieValue
+     * @param endpoint
+     * @return
+     */
+    public Response delete(String issueKey, String issueKeyValue, String commentKey, int commentKeyValue,
+                        String cookieKey, String cookieValue, String endpoint) {
+        return given()
+                .pathParam(issueKey, issueKeyValue)
+                .pathParam(commentKey, commentKeyValue)
+                .header(cookieKey, cookieValue)
+                .contentType(ContentType.JSON)
+                .when()
+                .delete(endpoint)
+                .then()
+                .log().body()
+                .extract()
+                .response();
+    }
+
+    /**
+     * delete issue
+     * @param issueKey
+     * @param issueKeyValue
+     * @param cookieKey
+     * @param cookieValue
+     * @param endpoint
+     * @return
+     */
+    public Response delete(String issueKey, String issueKeyValue, String cookieKey, String cookieValue, String endpoint) {
+        return given()
+                .pathParam(issueKey, issueKeyValue)
+                .header(cookieKey, cookieValue)
+                .when()
+                .delete(endpoint)
                 .then()
                 .log().body()
                 .extract()

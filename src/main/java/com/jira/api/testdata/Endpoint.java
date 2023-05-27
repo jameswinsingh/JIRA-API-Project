@@ -6,5 +6,6 @@ public class Endpoint {
     public static final String ADD_COMMENT_ENDPOINT = "/rest/api/2/issue/{key}/comment";
     public static final String GET_ISSUE_ENDPOINT = "/rest/api/2/issue/{key}";
     public static final String UPDATE_COMMENT_ENDPOINT = "/rest/api/2/issue/{key}/comment/{comment}";
+    public static final String GET_COMMENT_ENDPOINT = "/rest/api/2/issue/{key}/comment/{comment}";
 }
 
