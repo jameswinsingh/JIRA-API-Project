@@ -8,61 +8,58 @@ public class JiraApiTest extends Base {
 
     JiraApiValidation jiraApi;
     String token;
-    String issueKey = "RA-22";
+    String issueKey;
     int commentId;
 
     @Test
     public void verifyLogin() {
         jiraApi = new JiraApiValidation(report);
-        token = jiraApi.login();
+        token = jiraApi.verifyLogin();
 
     }
 
-//    @Test(priority = 1)
-//    public void verifyCreateIssue() {
-//        jiraApi = new JiraApiValidation(report);
-////        issueKey = jiraApi.createNewIssue(token);
-//        jiraApi.createNewIssue(token);
-//    }
+    @Test(priority = 1)
+    public void verifyCreateIssue() {
+        jiraApi = new JiraApiValidation(report);
+        issueKey = jiraApi.verifyCreateIssueApi(token);
+    }
 
     @Test(priority = 2)
     public void verifyAddComment() {
         jiraApi = new JiraApiValidation(report);
-        commentId = jiraApi.addCommentToTheIssue(token, issueKey);
+        commentId = jiraApi.verifyAddCommentApi(token, issueKey);
     }
 
     @Test(priority = 3)
     public void verifyGetIssueApi() {
         jiraApi = new JiraApiValidation(report);
-        jiraApi.getCreatedIssue(token, issueKey);
+        jiraApi.verifyGetIssueApi(token, issueKey);
     }
 
     @Test(priority = 4)
     public void verifyUpdateCommentApi() {
         System.out.println(commentId);
         jiraApi = new JiraApiValidation(report);
-        jiraApi.modifyComment(token, issueKey, commentId);
+        jiraApi.verifyModifyCommentApi(token, issueKey, commentId);
     }
 
     @Test(priority = 5)
     public void verifyGetCommentApi() {
         System.out.println(commentId);
         jiraApi = new JiraApiValidation(report);
-        jiraApi.getComment(token, issueKey, commentId);
+        jiraApi.verifyGetCommentApi(token, issueKey, commentId);
     }
 
-    @Test(priority = 6, enabled = false)
+    @Test(priority = 6, enabled = true)
     public void verifyDeleteCommentApi() {
-        System.out.println(commentId);
         jiraApi = new JiraApiValidation(report);
-        jiraApi.deleteComment(token, issueKey, commentId);
+        jiraApi.verifyDeleteCommentApi(token, issueKey, commentId);
     }
 
-    @Test(priority = 7)
+    @Test(priority = 7, enabled = true)
     public void verifyDeleteIssueApi() {
-        System.out.println(commentId);
         jiraApi = new JiraApiValidation(report);
-        jiraApi.deleteIssue(token, issueKey);
+        jiraApi.verifyDeleteIssueApi(token, issueKey);
     }
 
 }

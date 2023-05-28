@@ -4,6 +4,7 @@ import com.jira.api.assertion.Assertion;
 import com.jira.api.constant.FilePathConstant;
 import com.jira.api.constant.SpecificationConstant;
 import com.jira.api.constant.StatusCodeConstant;
+import com.jira.api.message.InfoMessage;
 import com.jira.api.message.VerificationMessage;
 import com.jira.api.pojo.build.BuildAddCommentRequestPayload;
 import com.jira.api.pojo.build.BuildCreateIssueRequestPayload;
@@ -17,6 +18,7 @@ import com.jira.api.utils.ApiActions;
 import com.jira.api.utils.JsonSchemaValidator;
 import com.jira.api.utils.PropertyParser;
 import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
@@ -33,7 +35,9 @@ public class JiraApiValidation {
 
     ApiActions apiActions = new ApiActions();
 
-    public String login() {
+    public String verifyLogin() {
+
+        report.log(LogStatus.INFO, InfoMessage.LOGIN_JIRA);
 
         String headerKey = SpecificationConstant.CONNECTION_KEY;
         String headerValue = SpecificationConstant.CONNECTION_VALUE;
@@ -67,7 +71,10 @@ public class JiraApiValidation {
         return token;
     }
 
-    public String createNewIssue(String token) {
+    public String verifyCreateIssueApi(String token) {
+
+        report.log(LogStatus.INFO, InfoMessage.CREATE_NEW_ISSUE);
+
         String headerKey = SpecificationConstant.CONNECTION_KEY;
         String headerValue = SpecificationConstant.CONNECTION_VALUE;
         String cookieKey = SpecificationConstant.COOKIE_KEY;
@@ -81,11 +88,22 @@ public class JiraApiValidation {
         );
 
         CreateIssueResponseData createIssueResponse = response.as(CreateIssueResponseData.class);
+
+        int statusCode = response.getStatusCode();
+        boolean responseSchema = JsonSchemaValidator.validateJsonSchema(response, FilePathConstant.CREATE_ISSUE_SCHEMA_FILEPATH);
+
+
+        Assertion.verifyStatusCode(statusCode, StatusCodeConstant.STATUS_C0DE_201, VerificationMessage.VERIFY_STATUS_CODE, report);
+        Assertion.verifyBooleanValue(responseSchema, true, VerificationMessage.VERIFY_JSON_SCHEMA, report);
+
         return createIssueResponse.getKey();
     }
 
 
-    public int addCommentToTheIssue(String token, String issueKey) {
+    public int verifyAddCommentApi(String token, String issueKey) {
+
+        report.log(LogStatus.INFO, InfoMessage.ADD_COMMENT_TO_ISSUE);
+
         String key = getTestData.getPropertyValue(TestData.ISSUE_KEY);
         String contentTypeKey = SpecificationConstant.CONTENT_TYPE_KEY;
         String contentTypeValue = SpecificationConstant.CONTENT_TYPE_VALUE;
@@ -112,7 +130,10 @@ public class JiraApiValidation {
 
     }
 
-    public void getCreatedIssue(String token, String issueKey) {
+    public void verifyGetIssueApi(String token, String issueKey) {
+
+        report.log(LogStatus.INFO, InfoMessage.GET_ISSUE);
+
         String key = getTestData.getPropertyValue(TestData.ISSUE_KEY);
         String cookieKey = SpecificationConstant.COOKIE_KEY;
         String endpoint = Endpoint.GET_ISSUE_ENDPOINT;
@@ -132,7 +153,10 @@ public class JiraApiValidation {
     }
 
 
-    public void modifyComment(String token, String issueKey, int commentId) {
+    public void verifyModifyCommentApi(String token, String issueKey, int commentId) {
+
+        report.log(LogStatus.INFO, InfoMessage.MODIFY_COMMENT);
+
         String key = getTestData.getPropertyValue(TestData.ISSUE_KEY);
         String commentKey = getTestData.getPropertyValue(TestData.COMMENT_KEY);
         String cookieKey = SpecificationConstant.COOKIE_KEY;
@@ -146,15 +170,23 @@ public class JiraApiValidation {
                 endpoint
         );
 
+        JsonPath jsonPath = new JsonPath(response.asString());
+        String actualComment = jsonPath.get("body");
+
         boolean responseSchema = JsonSchemaValidator.validateJsonSchema(response, FilePathConstant.UPDATE_COMMENT_SCHEMA_FILEPATH);
         int actualStatusCode = response.getStatusCode();
 
+
         Assertion.verifyStatusCode(actualStatusCode, StatusCodeConstant.STATUS_C0DE_200, VerificationMessage.VERIFY_STATUS_CODE, report);
         Assertion.verifyBooleanValue(responseSchema, true, VerificationMessage.VERIFY_JSON_SCHEMA, report);
+        Assertion.verifyString(actualComment, TestData.RESPONSE_COMMENT, VerificationMessage.UPDATE_COMMENT, report);
 
     }
 
-    public void getComment(String token, String issueKey, int commentId) {
+    public void verifyGetCommentApi(String token, String issueKey, int commentId) {
+
+        report.log(LogStatus.INFO, InfoMessage.GET_COMMENT);
+
         String key = getTestData.getPropertyValue(TestData.ISSUE_KEY);
         String commentKey = getTestData.getPropertyValue(TestData.COMMENT_KEY);
         String cookieKey = SpecificationConstant.COOKIE_KEY;
@@ -166,14 +198,21 @@ public class JiraApiValidation {
                 endpoint
         );
 
-        boolean responseSchema = JsonSchemaValidator.validateJsonSchema(response, FilePathConstant.ADD_COMMENT_SCHEMA_FILEPATH);
+        JsonPath jsonPath = new JsonPath(response.asString());
+        String actualComment = jsonPath.get("body");
+
+        boolean responseSchema = JsonSchemaValidator.validateJsonSchema(response, FilePathConstant.GET_COMMENT_SCHEMA_FILEPATH);
         int actualStatusCode = response.getStatusCode();
 
         Assertion.verifyStatusCode(actualStatusCode, StatusCodeConstant.STATUS_C0DE_200, VerificationMessage.VERIFY_STATUS_CODE, report);
         Assertion.verifyBooleanValue(responseSchema, true, VerificationMessage.VERIFY_JSON_SCHEMA, report);
+        Assertion.verifyString(actualComment, TestData.RESPONSE_COMMENT, VerificationMessage.GET_UPDATE_COMMENT, report);
     }
 
-    public void deleteComment(String token, String issueKey, int commentId) {
+    public void verifyDeleteCommentApi(String token, String issueKey, int commentId) {
+
+        report.log(LogStatus.INFO, InfoMessage.DELETE_COMMENT);
+
         String key = getTestData.getPropertyValue(TestData.ISSUE_KEY);
         String commentKey = getTestData.getPropertyValue(TestData.COMMENT_KEY);
         String cookieKey = SpecificationConstant.COOKIE_KEY;
@@ -190,7 +229,10 @@ public class JiraApiValidation {
         Assertion.verifyStatusCode(actualStatusCode, StatusCodeConstant.STATUS_C0DE_204, VerificationMessage.VERIFY_STATUS_CODE, report);
     }
 
-    public void deleteIssue(String token, String issueKey) {
+    public void verifyDeleteIssueApi(String token, String issueKey) {
+
+        report.log(LogStatus.INFO, InfoMessage.DELETE_ISSUE);
+
         String key = getTestData.getPropertyValue(TestData.ISSUE_KEY);
         String cookieKey = SpecificationConstant.COOKIE_KEY;
         String endpoint = Endpoint.GET_ISSUE_ENDPOINT;
@@ -200,13 +242,10 @@ public class JiraApiValidation {
                 endpoint
         );
 
-
         int actualStatusCode = response.getStatusCode();
         int expectedStatusCode = StatusCodeConstant.STATUS_C0DE_204;
 
         Assertion.verifyStatusCode(actualStatusCode, expectedStatusCode, VerificationMessage.VERIFY_STATUS_CODE, report);
 
-
     }
-
 }
