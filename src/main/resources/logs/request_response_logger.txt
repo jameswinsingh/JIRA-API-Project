@@ -1,0 +1,644 @@
+Request method:	POST
+Request URI:	http://localhost:8080/rest/auth/1/session
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Connection=keep-alive
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "username": "jamesrio617",
+    "password": "Restasssured@123"
+}
+HTTP/1.1 200 
+X-AREQUESTID: 1138x374x1
+Referrer-Policy: strict-origin-when-cross-origin
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+Content-Security-Policy: sandbox
+Strict-Transport-Security: max-age=31536000
+Set-Cookie: atlassian.xsrf.token=BHCU-8T6S-K8C6-SQK4_f4b70fdbfafbeea7df4da12150dcfdb9337aaf4c_lout; Path=/
+X-AUSERNAME: anonymous
+Set-Cookie: JSESSIONID=9A8F33EB8558ED3AD9262AEEF31BEAFD; Path=/; HttpOnly
+X-Seraph-LoginReason: OK
+Cache-Control: no-cache, no-store, no-transform
+Content-Encoding: gzip
+Vary: User-Agent
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+Date: Sun, 28 May 2023 13:28:16 GMT
+Keep-Alive: timeout=20
+Connection: keep-alive
+
+{
+    "session": {
+        "name": "JSESSIONID",
+        "value": "9A8F33EB8558ED3AD9262AEEF31BEAFD"
+    },
+    "loginInfo": {
+        "failedLoginCount": 1,
+        "loginCount": 142,
+        "lastFailedLoginTime": "2023-05-24T15:28:00.449+0530",
+        "previousLoginTime": "2023-05-28T18:51:01.121+0530"
+    }
+}
+Request method:	POST
+Request URI:	http://localhost:8080/rest/api/2/issue
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Connection=keep-alive
+				cookie=JSESSIONID=9A8F33EB8558ED3AD9262AEEF31BEAFD
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "fields": {
+        "summary": "Start JIRA rest API automation",
+        "description": "Automate this issue",
+        "issuetype": {
+            "name": "Bug"
+        },
+        "project": {
+            "key": "RA"
+        }
+    }
+}
+HTTP/1.1 201 
+X-AREQUESTID: 1138x375x1
+X-ASESSIONID: 12t1y03
+Referrer-Policy: strict-origin-when-cross-origin
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+Content-Security-Policy: sandbox
+Strict-Transport-Security: max-age=31536000
+X-Seraph-LoginReason: OK
+Set-Cookie: atlassian.xsrf.token=BHCU-8T6S-K8C6-SQK4_76a5fb0e91487b0399305773e357fbfce226f62c_lin; Path=/
+X-AUSERNAME: jamesrio617
+Cache-Control: no-cache, no-store, no-transform
+Content-Encoding: gzip
+Vary: User-Agent
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+Date: Sun, 28 May 2023 13:28:18 GMT
+Keep-Alive: timeout=20
+Connection: keep-alive
+
+{
+    "id": "10322",
+    "key": "RA-46",
+    "self": "http://localhost:8080/rest/api/2/issue/10322"
+}
+Request method:	POST
+Request URI:	http://localhost:8080/rest/api/2/issue/RA-46/comment
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	key=RA-46
+Headers:		cookie=JSESSIONID=9A8F33EB8558ED3AD9262AEEF31BEAFD
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "body": "I have added a new comment to this issue",
+    "visibility": {
+        "type": "role",
+        "value": "Administrators"
+    }
+}
+HTTP/1.1 201 
+X-AREQUESTID: 1138x376x1
+X-ASESSIONID: 12t1y03
+Referrer-Policy: strict-origin-when-cross-origin
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+Content-Security-Policy: sandbox
+Strict-Transport-Security: max-age=31536000
+X-Seraph-LoginReason: OK
+Set-Cookie: atlassian.xsrf.token=BHCU-8T6S-K8C6-SQK4_43bd80625d8113f10cd29061fb22e6742bc2aadf_lin; Path=/
+X-AUSERNAME: jamesrio617
+Location: http://localhost:8080/rest/api/2/issue/10322/comment/10325
+Cache-Control: no-cache, no-store, no-transform
+Content-Encoding: gzip
+Vary: User-Agent
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+Date: Sun, 28 May 2023 13:28:18 GMT
+Keep-Alive: timeout=20
+Connection: keep-alive
+
+{
+    "self": "http://localhost:8080/rest/api/2/issue/10322/comment/10325",
+    "id": "10325",
+    "author": {
+        "self": "http://localhost:8080/rest/api/2/user?username=jamesrio617",
+        "name": "jamesrio617",
+        "key": "JIRAUSER10000",
+        "emailAddress": "jamesrio617@gmail.com",
+        "avatarUrls": {
+            "48x48": "https://www.gravatar.com/avatar/3d8b925d3aa1389c6ba26881fc377caf?d=mm&s=48",
+            "24x24": "https://www.gravatar.com/avatar/3d8b925d3aa1389c6ba26881fc377caf?d=mm&s=24",
+            "16x16": "https://www.gravatar.com/avatar/3d8b925d3aa1389c6ba26881fc377caf?d=mm&s=16",
+            "32x32": "https://www.gravatar.com/avatar/3d8b925d3aa1389c6ba26881fc377caf?d=mm&s=32"
+        },
+        "displayName": "jamesrio617@gmail.com",
+        "active": true,
+        "timeZone": "Asia/Calcutta"
+    },
+    "body": "I have added a new comment to this issue",
+    "updateAuthor": {
+        "self": "http://localhost:8080/rest/api/2/user?username=jamesrio617",
+        "name": "jamesrio617",
+        "key": "JIRAUSER10000",
+        "emailAddress": "jamesrio617@gmail.com",
+        "avatarUrls": {
+            "48x48": "https://www.gravatar.com/avatar/3d8b925d3aa1389c6ba26881fc377caf?d=mm&s=48",
+            "24x24": "https://www.gravatar.com/avatar/3d8b925d3aa1389c6ba26881fc377caf?d=mm&s=24",
+            "16x16": "https://www.gravatar.com/avatar/3d8b925d3aa1389c6ba26881fc377caf?d=mm&s=16",
+            "32x32": "https://www.gravatar.com/avatar/3d8b925d3aa1389c6ba26881fc377caf?d=mm&s=32"
+        },
+        "displayName": "jamesrio617@gmail.com",
+        "active": true,
+        "timeZone": "Asia/Calcutta"
+    },
+    "created": "2023-05-28T18:58:18.188+0530",
+    "updated": "2023-05-28T18:58:18.188+0530",
+    "visibility": {
+        "type": "role",
+        "value": "Administrators"
+    }
+}
+Request method:	GET
+Request URI:	http://localhost:8080/rest/api/2/issue/RA-46
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	key=RA-46
+Headers:		cookie=JSESSIONID=9A8F33EB8558ED3AD9262AEEF31BEAFD
+				Accept=*/*
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 200 
+X-AREQUESTID: 1138x377x1
+X-ASESSIONID: 12t1y03
+Referrer-Policy: strict-origin-when-cross-origin
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+Content-Security-Policy: sandbox
+Strict-Transport-Security: max-age=31536000
+X-Seraph-LoginReason: OK
+Set-Cookie: atlassian.xsrf.token=BHCU-8T6S-K8C6-SQK4_9a569aa2a3deaeff47cf113f677f884c436a4935_lin; Path=/
+X-AUSERNAME: jamesrio617
+Cache-Control: no-cache, no-store, no-transform
+Content-Encoding: gzip
+Vary: User-Agent
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+Date: Sun, 28 May 2023 13:28:19 GMT
+Keep-Alive: timeout=20
+Connection: keep-alive
+
+{
+    "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+    "id": "10322",
+    "self": "http://localhost:8080/rest/api/2/issue/10322",
+    "key": "RA-46",
+    "fields": {
+        "issuetype": {
+            "self": "http://localhost:8080/rest/api/2/issuetype/10004",
+            "id": "10004",
+            "description": "A problem which impairs or prevents the functions of the product.",
+            "iconUrl": "http://localhost:8080/secure/viewavatar?size=xsmall&avatarId=10303&avatarType=issuetype",
+            "name": "Bug",
+            "subtask": false,
+            "avatarId": 10303
+        },
+        "timespent": null,
+        "project": {
+            "self": "http://localhost:8080/rest/api/2/project/10000",
+            "id": "10000",
+            "key": "RA",
+            "name": "RestAssured",
+            "projectTypeKey": "software",
+            "avatarUrls": {
+                "48x48": "http://localhost:8080/secure/projectavatar?avatarId=10324",
+                "24x24": "http://localhost:8080/secure/projectavatar?size=small&avatarId=10324",
+                "16x16": "http://localhost:8080/secure/projectavatar?size=xsmall&avatarId=10324",
+                "32x32": "http://localhost:8080/secure/projectavatar?size=medium&avatarId=10324"
+            }
+        },
+        "fixVersions": [
+            
+        ],
+        "customfield_10110": null,
+        "aggregatetimespent": null,
+        "resolution": null,
+        "customfield_10104": null,
+        "customfield_10108": "0|i0005r:",
+        "customfield_10109": null,
+        "resolutiondate": null,
+        "workratio": -1,
+        "lastViewed": null,
+        "watches": {
+            "self": "http://localhost:8080/rest/api/2/issue/RA-46/watchers",
+            "watchCount": 1,
+            "isWatching": true
+        },
+        "created": "2023-05-28T18:58:17.785+0530",
+        "priority": {
+            "self": "http://localhost:8080/rest/api/2/priority/3",
+            "iconUrl": "http://localhost:8080/images/icons/priorities/medium.svg",
+            "name": "Medium",
+            "id": "3"
+        },
+        "customfield_10100": null,
+        "customfield_10101": null,
+        "customfield_10102": null,
+        "labels": [
+            
+        ],
+        "customfield_10103": null,
+        "timeestimate": null,
+        "aggregatetimeoriginalestimate": null,
+        "versions": [
+            
+        ],
+        "issuelinks": [
+            
+        ],
+        "assignee": null,
+        "updated": "2023-05-28T18:58:18.188+0530",
+        "status": {
+            "self": "http://localhost:8080/rest/api/2/status/10000",
+            "description": "",
+            "iconUrl": "http://localhost:8080/",
+            "name": "To Do",
+            "id": "10000",
+            "statusCategory": {
+                "self": "http://localhost:8080/rest/api/2/statuscategory/2",
+                "id": 2,
+                "key": "new",
+                "colorName": "default",
+                "name": "To Do"
+            }
+        },
+        "components": [
+            
+        ],
+        "timeoriginalestimate": null,
+        "description": "Automate this issue",
+        "timetracking": {
+            
+        },
+        "archiveddate": null,
+        "attachment": [
+            
+        ],
+        "aggregatetimeestimate": null,
+        "summary": "Start JIRA rest API automation",
+        "creator": {
+            "self": "http://localhost:8080/rest/api/2/user?username=jamesrio617",
+            "name": "jamesrio617",
+            "key": "JIRAUSER10000",
+            "emailAddress": "jamesrio617@gmail.com",
+            "avatarUrls": {
+                "48x48": "https://www.gravatar.com/avatar/3d8b925d3aa1389c6ba26881fc377caf?d=mm&s=48",
+                "24x24": "https://www.gravatar.com/avatar/3d8b925d3aa1389c6ba26881fc377caf?d=mm&s=24",
+                "16x16": "https://www.gravatar.com/avatar/3d8b925d3aa1389c6ba26881fc377caf?d=mm&s=16",
+                "32x32": "https://www.gravatar.com/avatar/3d8b925d3aa1389c6ba26881fc377caf?d=mm&s=32"
+            },
+            "displayName": "jamesrio617@gmail.com",
+            "active": true,
+            "timeZone": "Asia/Calcutta"
+        },
+        "subtasks": [
+            
+        ],
+        "reporter": {
+            "self": "http://localhost:8080/rest/api/2/user?username=jamesrio617",
+            "name": "jamesrio617",
+            "key": "JIRAUSER10000",
+            "emailAddress": "jamesrio617@gmail.com",
+            "avatarUrls": {
+                "48x48": "https://www.gravatar.com/avatar/3d8b925d3aa1389c6ba26881fc377caf?d=mm&s=48",
+                "24x24": "https://www.gravatar.com/avatar/3d8b925d3aa1389c6ba26881fc377caf?d=mm&s=24",
+                "16x16": "https://www.gravatar.com/avatar/3d8b925d3aa1389c6ba26881fc377caf?d=mm&s=16",
+                "32x32": "https://www.gravatar.com/avatar/3d8b925d3aa1389c6ba26881fc377caf?d=mm&s=32"
+            },
+            "displayName": "jamesrio617@gmail.com",
+            "active": true,
+            "timeZone": "Asia/Calcutta"
+        },
+        "customfield_10000": "{summaryBean=com.atlassian.jira.plugin.devstatus.rest.SummaryBean@2953293e[summary={pullrequest=com.atlassian.jira.plugin.devstatus.rest.SummaryItemBean@64fc7e65[overall=PullRequestOverallBean{stateCount=0, state='OPEN', details=PullRequestOverallDetails{openCount=0, mergedCount=0, declinedCount=0}},byInstanceType={}], build=com.atlassian.jira.plugin.devstatus.rest.SummaryItemBean@3430baf9[overall=com.atlassian.jira.plugin.devstatus.summary.beans.BuildOverallBean@3338e54c[failedBuildCount=0,successfulBuildCount=0,unknownBuildCount=0,count=0,lastUpdated=<null>,lastUpdatedTimestamp=<null>],byInstanceType={}], review=com.atlassian.jira.plugin.devstatus.rest.SummaryItemBean@466f90f3[overall=com.atlassian.jira.plugin.devstatus.summary.beans.ReviewsOverallBean@116ecf32[stateCount=0,state=<null>,dueDate=<null>,overDue=false,count=0,lastUpdated=<null>,lastUpdatedTimestamp=<null>],byInstanceType={}], deployment-environment=com.atlassian.jira.plugin.devstatus.rest.SummaryItemBean@20385894[overall=com.atlassian.jira.plugin.devstatus.summary.beans.DeploymentOverallBean@54dedb5a[topEnvironments=[],showProjects=false,successfulCount=0,count=0,lastUpdated=<null>,lastUpdatedTimestamp=<null>],byInstanceType={}], repository=com.atlassian.jira.plugin.devstatus.rest.SummaryItemBean@6e8c313a[overall=com.atlassian.jira.plugin.devstatus.summary.beans.CommitOverallBean@9fc6486[count=0,lastUpdated=<null>,lastUpdatedTimestamp=<null>],byInstanceType={}], branch=com.atlassian.jira.plugin.devstatus.rest.SummaryItemBean@6b6271d5[overall=com.atlassian.jira.plugin.devstatus.summary.beans.BranchOverallBean@49c463e8[count=0,lastUpdated=<null>,lastUpdatedTimestamp=<null>],byInstanceType={}]},errors=[],configErrors=[]], devSummaryJson={\"cachedValue\":{\"errors\":[],\"configErrors\":[],\"summary\":{\"pullrequest\":{\"overall\":{\"count\":0,\"lastUpdated\":null,\"stateCount\":0,\"state\":\"OPEN\",\"details\":{\"openCount\":0,\"mergedCount\":0,\"declinedCount\":0,\"total\":0},\"open\":true},\"byInstanceType\":{}},\"build\":{\"overall\":{\"count\":0,\"lastUpdated\":null,\"failedBuildCount\":0,\"successfulBuildCount\":0,\"unknownBuildCount\":0},\"byInstanceType\":{}},\"review\":{\"overall\":{\"count\":0,\"lastUpdated\":null,\"stateCount\":0,\"state\":null,\"dueDate\":null,\"overDue\":false,\"completed\":false},\"byInstanceType\":{}},\"deployment-environment\":{\"overall\":{\"count\":0,\"lastUpdated\":null,\"topEnvironments\":[],\"showProjects\":false,\"successfulCount\":0},\"byInstanceType\":{}},\"repository\":{\"overall\":{\"count\":0,\"lastUpdated\":null},\"byInstanceType\":{}},\"branch\":{\"overall\":{\"count\":0,\"lastUpdated\":null},\"byInstanceType\":{}}}},\"isStale\":false}}",
+        "aggregateprogress": {
+            "progress": 0,
+            "total": 0
+        },
+        "environment": null,
+        "duedate": null,
+        "progress": {
+            "progress": 0,
+            "total": 0
+        },
+        "comment": {
+            "comments": [
+                {
+                    "self": "http://localhost:8080/rest/api/2/issue/10322/comment/10325",
+                    "id": "10325",
+                    "author": {
+                        "self": "http://localhost:8080/rest/api/2/user?username=jamesrio617",
+                        "name": "jamesrio617",
+                        "key": "JIRAUSER10000",
+                        "emailAddress": "jamesrio617@gmail.com",
+                        "avatarUrls": {
+                            "48x48": "https://www.gravatar.com/avatar/3d8b925d3aa1389c6ba26881fc377caf?d=mm&s=48",
+                            "24x24": "https://www.gravatar.com/avatar/3d8b925d3aa1389c6ba26881fc377caf?d=mm&s=24",
+                            "16x16": "https://www.gravatar.com/avatar/3d8b925d3aa1389c6ba26881fc377caf?d=mm&s=16",
+                            "32x32": "https://www.gravatar.com/avatar/3d8b925d3aa1389c6ba26881fc377caf?d=mm&s=32"
+                        },
+                        "displayName": "jamesrio617@gmail.com",
+                        "active": true,
+                        "timeZone": "Asia/Calcutta"
+                    },
+                    "body": "I have added a new comment to this issue",
+                    "updateAuthor": {
+                        "self": "http://localhost:8080/rest/api/2/user?username=jamesrio617",
+                        "name": "jamesrio617",
+                        "key": "JIRAUSER10000",
+                        "emailAddress": "jamesrio617@gmail.com",
+                        "avatarUrls": {
+                            "48x48": "https://www.gravatar.com/avatar/3d8b925d3aa1389c6ba26881fc377caf?d=mm&s=48",
+                            "24x24": "https://www.gravatar.com/avatar/3d8b925d3aa1389c6ba26881fc377caf?d=mm&s=24",
+                            "16x16": "https://www.gravatar.com/avatar/3d8b925d3aa1389c6ba26881fc377caf?d=mm&s=16",
+                            "32x32": "https://www.gravatar.com/avatar/3d8b925d3aa1389c6ba26881fc377caf?d=mm&s=32"
+                        },
+                        "displayName": "jamesrio617@gmail.com",
+                        "active": true,
+                        "timeZone": "Asia/Calcutta"
+                    },
+                    "created": "2023-05-28T18:58:18.188+0530",
+                    "updated": "2023-05-28T18:58:18.188+0530",
+                    "visibility": {
+                        "type": "role",
+                        "value": "Administrators"
+                    }
+                }
+            ],
+            "maxResults": 1,
+            "total": 1,
+            "startAt": 0
+        },
+        "votes": {
+            "self": "http://localhost:8080/rest/api/2/issue/RA-46/votes",
+            "votes": 0,
+            "hasVoted": false
+        },
+        "worklog": {
+            "startAt": 0,
+            "maxResults": 20,
+            "total": 0,
+            "worklogs": [
+                
+            ]
+        },
+        "archivedby": null
+    }
+}
+Request method:	PUT
+Request URI:	http://localhost:8080/rest/api/2/issue/RA-46/comment/10325
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	key=RA-46
+				comment=10325
+Headers:		cookie=JSESSIONID=9A8F33EB8558ED3AD9262AEEF31BEAFD
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "body": "This test is to update the comment",
+    "visibility": {
+        "type": "role",
+        "value": "Administrators"
+    }
+}
+HTTP/1.1 200 
+X-AREQUESTID: 1138x378x1
+X-ASESSIONID: 12t1y03
+Referrer-Policy: strict-origin-when-cross-origin
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+Content-Security-Policy: sandbox
+Strict-Transport-Security: max-age=31536000
+X-Seraph-LoginReason: OK
+Set-Cookie: atlassian.xsrf.token=BHCU-8T6S-K8C6-SQK4_b6de13f82eea9d010fd05271e4c860beb87f2be7_lin; Path=/
+X-AUSERNAME: jamesrio617
+Location: http://localhost:8080/rest/api/2/issue/10322/comment/10325
+Cache-Control: no-cache, no-store, no-transform
+Content-Encoding: gzip
+Vary: User-Agent
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+Date: Sun, 28 May 2023 13:28:21 GMT
+Keep-Alive: timeout=20
+Connection: keep-alive
+
+{
+    "self": "http://localhost:8080/rest/api/2/issue/10322/comment/10325",
+    "id": "10325",
+    "author": {
+        "self": "http://localhost:8080/rest/api/2/user?username=jamesrio617",
+        "name": "jamesrio617",
+        "key": "JIRAUSER10000",
+        "emailAddress": "jamesrio617@gmail.com",
+        "avatarUrls": {
+            "48x48": "https://www.gravatar.com/avatar/3d8b925d3aa1389c6ba26881fc377caf?d=mm&s=48",
+            "24x24": "https://www.gravatar.com/avatar/3d8b925d3aa1389c6ba26881fc377caf?d=mm&s=24",
+            "16x16": "https://www.gravatar.com/avatar/3d8b925d3aa1389c6ba26881fc377caf?d=mm&s=16",
+            "32x32": "https://www.gravatar.com/avatar/3d8b925d3aa1389c6ba26881fc377caf?d=mm&s=32"
+        },
+        "displayName": "jamesrio617@gmail.com",
+        "active": true,
+        "timeZone": "Asia/Calcutta"
+    },
+    "body": "This test is to update the comment",
+    "updateAuthor": {
+        "self": "http://localhost:8080/rest/api/2/user?username=jamesrio617",
+        "name": "jamesrio617",
+        "key": "JIRAUSER10000",
+        "emailAddress": "jamesrio617@gmail.com",
+        "avatarUrls": {
+            "48x48": "https://www.gravatar.com/avatar/3d8b925d3aa1389c6ba26881fc377caf?d=mm&s=48",
+            "24x24": "https://www.gravatar.com/avatar/3d8b925d3aa1389c6ba26881fc377caf?d=mm&s=24",
+            "16x16": "https://www.gravatar.com/avatar/3d8b925d3aa1389c6ba26881fc377caf?d=mm&s=16",
+            "32x32": "https://www.gravatar.com/avatar/3d8b925d3aa1389c6ba26881fc377caf?d=mm&s=32"
+        },
+        "displayName": "jamesrio617@gmail.com",
+        "active": true,
+        "timeZone": "Asia/Calcutta"
+    },
+    "created": "2023-05-28T18:58:18.188+0530",
+    "updated": "2023-05-28T18:58:20.969+0530",
+    "visibility": {
+        "type": "role",
+        "value": "Administrators"
+    }
+}
+Request method:	GET
+Request URI:	http://localhost:8080/rest/api/2/issue/RA-46/comment/10325
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	key=RA-46
+				comment=10325
+Headers:		cookie=JSESSIONID=9A8F33EB8558ED3AD9262AEEF31BEAFD
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 200 
+X-AREQUESTID: 1138x379x1
+X-ASESSIONID: 12t1y03
+Referrer-Policy: strict-origin-when-cross-origin
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+Content-Security-Policy: sandbox
+Strict-Transport-Security: max-age=31536000
+X-Seraph-LoginReason: OK
+Set-Cookie: atlassian.xsrf.token=BHCU-8T6S-K8C6-SQK4_3e7ae8bc0d8800f6fc7404e9d87d4631c94a213c_lin; Path=/
+X-AUSERNAME: jamesrio617
+Cache-Control: no-cache, no-store, no-transform
+Content-Encoding: gzip
+Vary: User-Agent
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+Date: Sun, 28 May 2023 13:28:21 GMT
+Keep-Alive: timeout=20
+Connection: keep-alive
+
+{
+    "self": "http://localhost:8080/rest/api/2/issue/10322/comment/10325",
+    "id": "10325",
+    "author": {
+        "self": "http://localhost:8080/rest/api/2/user?username=jamesrio617",
+        "name": "jamesrio617",
+        "key": "JIRAUSER10000",
+        "emailAddress": "jamesrio617@gmail.com",
+        "avatarUrls": {
+            "48x48": "https://www.gravatar.com/avatar/3d8b925d3aa1389c6ba26881fc377caf?d=mm&s=48",
+            "24x24": "https://www.gravatar.com/avatar/3d8b925d3aa1389c6ba26881fc377caf?d=mm&s=24",
+            "16x16": "https://www.gravatar.com/avatar/3d8b925d3aa1389c6ba26881fc377caf?d=mm&s=16",
+            "32x32": "https://www.gravatar.com/avatar/3d8b925d3aa1389c6ba26881fc377caf?d=mm&s=32"
+        },
+        "displayName": "jamesrio617@gmail.com",
+        "active": true,
+        "timeZone": "Asia/Calcutta"
+    },
+    "body": "This test is to update the comment",
+    "updateAuthor": {
+        "self": "http://localhost:8080/rest/api/2/user?username=jamesrio617",
+        "name": "jamesrio617",
+        "key": "JIRAUSER10000",
+        "emailAddress": "jamesrio617@gmail.com",
+        "avatarUrls": {
+            "48x48": "https://www.gravatar.com/avatar/3d8b925d3aa1389c6ba26881fc377caf?d=mm&s=48",
+            "24x24": "https://www.gravatar.com/avatar/3d8b925d3aa1389c6ba26881fc377caf?d=mm&s=24",
+            "16x16": "https://www.gravatar.com/avatar/3d8b925d3aa1389c6ba26881fc377caf?d=mm&s=16",
+            "32x32": "https://www.gravatar.com/avatar/3d8b925d3aa1389c6ba26881fc377caf?d=mm&s=32"
+        },
+        "displayName": "jamesrio617@gmail.com",
+        "active": true,
+        "timeZone": "Asia/Calcutta"
+    },
+    "created": "2023-05-28T18:58:18.188+0530",
+    "updated": "2023-05-28T18:58:20.969+0530",
+    "visibility": {
+        "type": "role",
+        "value": "Administrators"
+    }
+}
+Request method:	DELETE
+Request URI:	http://localhost:8080/rest/api/2/issue/RA-46/comment/10325
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	key=RA-46
+				comment=10325
+Headers:		cookie=JSESSIONID=9A8F33EB8558ED3AD9262AEEF31BEAFD
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 204 
+X-AREQUESTID: 1138x380x1
+X-ASESSIONID: 12t1y03
+Referrer-Policy: strict-origin-when-cross-origin
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+Content-Security-Policy: sandbox
+Strict-Transport-Security: max-age=31536000
+X-Seraph-LoginReason: OK
+Set-Cookie: atlassian.xsrf.token=BHCU-8T6S-K8C6-SQK4_426a9bb3125163baa0c01d2a1b39848acbe2601b_lin; Path=/
+X-AUSERNAME: jamesrio617
+Cache-Control: no-cache, no-store, no-transform
+Content-Type: application/json;charset=UTF-8
+Date: Sun, 28 May 2023 13:28:21 GMT
+Keep-Alive: timeout=20
+Connection: keep-alive
+Request method:	DELETE
+Request URI:	http://localhost:8080/rest/api/2/issue/RA-46
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	key=RA-46
+Headers:		cookie=JSESSIONID=9A8F33EB8558ED3AD9262AEEF31BEAFD
+				Accept=*/*
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 204 
+X-AREQUESTID: 1138x381x1
+X-ASESSIONID: 12t1y03
+Referrer-Policy: strict-origin-when-cross-origin
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+Content-Security-Policy: sandbox
+Strict-Transport-Security: max-age=31536000
+X-Seraph-LoginReason: OK
+Set-Cookie: atlassian.xsrf.token=BHCU-8T6S-K8C6-SQK4_9c152a528073cc90d0561a42c37182bf1c10b7ca_lin; Path=/
+X-AUSERNAME: jamesrio617
+Cache-Control: no-cache, no-store, no-transform
+Content-Type: application/json;charset=UTF-8
+Date: Sun, 28 May 2023 13:28:21 GMT
+Keep-Alive: timeout=20
+Connection: keep-alive

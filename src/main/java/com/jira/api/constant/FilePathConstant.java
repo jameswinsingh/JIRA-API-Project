@@ -12,6 +12,7 @@ public class FilePathConstant {
             + File.separator + "resources" + File.separator;
     public static final String EXTENT_REPORT_PATH = USER_DIR_PATH + "/test-output/ExtentReport.html";
     public static final String BASE_RESOURCE = RESOURCES_PATH + "baseresources" + File.separator;
+    public static final String TESTNG_FILE_PATH = USER_DIR_PATH + File.separator + "testng.xml";
     public static final String BASE_RESOURCE_FILE_PATH = BASE_RESOURCE + "BasicResources.properties";
     public static final String TEST_DATA = RESOURCES_PATH + "testdata" + File.separator;
     public static final String TEST_DATA_FILEPATH = TEST_DATA + "data.properties";
@@ -22,6 +23,8 @@ public class FilePathConstant {
     public static final String GET_ISSUE_SCHEMA_FILEPATH = JSON_SCHEMA + "get_issue_response_json_schema.json";
     public static final String UPDATE_COMMENT_SCHEMA_FILEPATH = JSON_SCHEMA + "update_comment_json_schema.json";
     public static final String GET_COMMENT_SCHEMA_FILEPATH = JSON_SCHEMA + "get_comment_json_schema.json";
+    public static final String LOG = RESOURCES_PATH + "logs" + File.separator;
+    public static final String LOGGER_FILE_PATH = LOG + "request_response_logger.txt";
 
 
 }

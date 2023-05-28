@@ -5,5 +5,5 @@ package com.jira.api.constant;
  */
 public class BaseConfiguration {
 
-    public static final String URL = "base.uri";
+    public static final String URL = "http://localhost:8080";
 }

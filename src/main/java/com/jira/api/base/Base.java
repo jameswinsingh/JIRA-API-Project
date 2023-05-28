@@ -1,12 +1,12 @@
 package com.jira.api.base;
 
-import com.jira.api.constant.BaseConfiguration;
 import com.jira.api.constant.FilePathConstant;
-import com.jira.api.utils.PropertyParser;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
-import io.restassured.RestAssured;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 
 import java.lang.reflect.Method;
 
@@ -14,7 +14,6 @@ public class Base {
 
     public static ExtentTest report;
     public static ExtentReports extent;
-    PropertyParser baseURI = new PropertyParser(FilePathConstant.BASE_RESOURCE_FILE_PATH);
 
 
     @BeforeSuite
@@ -22,11 +21,6 @@ public class Base {
         extent = new ExtentReports(FilePathConstant.EXTENT_REPORT_PATH);
     }
 
-    @BeforeClass
-    public void setBaseURI() {
-
-        RestAssured.baseURI = baseURI.getPropertyValue(BaseConfiguration.URL);
-    }
 
     /**
      * A method to get the class name & method name of the current test.

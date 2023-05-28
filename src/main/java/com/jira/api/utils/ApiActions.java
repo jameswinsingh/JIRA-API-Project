@@ -10,6 +10,8 @@ import static io.restassured.RestAssured.given;
  */
 public class ApiActions {
 
+    RequestSpecificationUtil specSetup = new RequestSpecificationUtil();
+
     /**
      * This method contains POST HTTP request
      *
@@ -22,7 +24,9 @@ public class ApiActions {
     public Response post(String headerKey,
                          String headerValue, String contentType,
                          Object requestBody, String endpoints) {
+
         return given()
+                .spec(specSetup.requestSpecification())
                 .header(headerKey, headerValue)
                 .contentType(contentType)
                 .body(requestBody)
@@ -47,6 +51,7 @@ public class ApiActions {
                          String headerValue, String cookieKey, String cookieValue,
                          String contentType, Object requestBody, String endpoints) {
         return given()
+                .spec(specSetup.requestSpecification())
                 .header(headerKey, headerValue)
                 .header(cookieKey, cookieValue)
                 .contentType(contentType)
@@ -63,6 +68,7 @@ public class ApiActions {
                                String headerValue, String cookieKey, String cookieValue,
                                Object requestBody, String endpoints) {
         return given()
+                .spec(specSetup.requestSpecification())
                 .pathParam(issueIdKey, issueIdValue)
                 .header(headerKey, headerValue)
                 .header(cookieKey, cookieValue)
@@ -87,6 +93,7 @@ public class ApiActions {
      */
     public Response get(String issueKey, String issueKeyValue, String cookieKey, String cookieValue, String endpoint) {
         return given()
+                .spec(specSetup.requestSpecification())
                 .pathParam(issueKey, issueKeyValue)
                 .header(cookieKey, cookieValue)
                 .when()
@@ -99,6 +106,7 @@ public class ApiActions {
 
     /**
      * This method contain the get method to get comment API
+     *
      * @param issueKey
      * @param issueKeyValue
      * @param commentKey
@@ -111,6 +119,7 @@ public class ApiActions {
     public Response get(String issueKey, String issueKeyValue, String commentKey, int commentKeyValue,
                         String cookieKey, String cookieValue, String endpoint) {
         return given()
+                .spec(specSetup.requestSpecification())
                 .pathParam(issueKey, issueKeyValue)
                 .pathParam(commentKey, commentKeyValue)
                 .header(cookieKey, cookieValue)
@@ -127,6 +136,7 @@ public class ApiActions {
     public Response put(String issueKey, String issueKeyValue, String commentKey, int commentKeyValue,
                         String cookieKey, String cookieValue, Object payload, String endpoint) {
         return given()
+                .spec(specSetup.requestSpecification())
                 .pathParam(issueKey, issueKeyValue)
                 .pathParam(commentKey, commentKeyValue)
                 .header(cookieKey, cookieValue)
@@ -154,6 +164,7 @@ public class ApiActions {
      */
     public Response patch(String contentTypeKey, String contentTypeValue, String cartId, String cartIdValue, String itemIdKey, int itemIdValue, Object body, String endpoint) {
         return given()
+                .spec(specSetup.requestSpecification())
                 .header(contentTypeKey, contentTypeValue)
                 .pathParam(cartId, cartIdValue)
                 .pathParam(itemIdKey, itemIdValue)
@@ -168,6 +179,7 @@ public class ApiActions {
 
     /**
      * This method contain the delete method to delete comment
+     *
      * @param issueKey
      * @param issueKeyValue
      * @param commentKey
@@ -178,8 +190,9 @@ public class ApiActions {
      * @return
      */
     public Response delete(String issueKey, String issueKeyValue, String commentKey, int commentKeyValue,
-                        String cookieKey, String cookieValue, String endpoint) {
+                           String cookieKey, String cookieValue, String endpoint) {
         return given()
+                .spec(specSetup.requestSpecification())
                 .pathParam(issueKey, issueKeyValue)
                 .pathParam(commentKey, commentKeyValue)
                 .header(cookieKey, cookieValue)
@@ -194,6 +207,7 @@ public class ApiActions {
 
     /**
      * delete issue
+     *
      * @param issueKey
      * @param issueKeyValue
      * @param cookieKey
@@ -203,6 +217,7 @@ public class ApiActions {
      */
     public Response delete(String issueKey, String issueKeyValue, String cookieKey, String cookieValue, String endpoint) {
         return given()
+                .spec(specSetup.requestSpecification())
                 .pathParam(issueKey, issueKeyValue)
                 .header(cookieKey, cookieValue)
                 .when()
