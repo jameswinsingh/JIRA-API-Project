@@ -81,6 +81,31 @@ public class ApiActions {
                 .response();
     }
 
+    /**
+     * A method to create filter
+     *
+     * @param cookieKey
+     * @param cookieValue
+     * @param requestBody
+     * @param endpoints
+     * @return
+     */
+    public Response post(String cookieKey, String cookieValue,
+                         String headerKey, String headerValue,
+                         Object requestBody, String endpoints) {
+        return given()
+                .spec(specSetup.requestSpecification())
+                .header(cookieKey, cookieValue)
+                .header(headerKey, headerValue)
+                .body(requestBody)
+                .when()
+                .post(endpoints)
+                .then()
+                .log().body()
+                .extract()
+                .response();
+    }
+
 
     /**
      * This method contains GET HTTP request
@@ -131,6 +156,47 @@ public class ApiActions {
                 .extract()
                 .response();
     }
+
+    /**
+     * A method to getFilter
+
+     * @param cookieKey
+     * @param cookieValue
+     * @param endpoint
+     * @return
+     */
+    public Response getFilter(String filterKey, int filterValue,
+                        String cookieKey, String cookieValue, String endpoint) {
+        return given()
+                .spec(specSetup.requestSpecification())
+                .pathParam(filterKey, filterValue)
+                .header(cookieKey, cookieValue)
+                .when()
+                .get(endpoint)
+                .then()
+                .log().body()
+                .extract()
+                .response();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     public Response put(String issueKey, String issueKeyValue, String commentKey, int commentKeyValue,
@@ -219,6 +285,32 @@ public class ApiActions {
         return given()
                 .spec(specSetup.requestSpecification())
                 .pathParam(issueKey, issueKeyValue)
+                .header(cookieKey, cookieValue)
+                .when()
+                .delete(endpoint)
+                .then()
+                .log().body()
+                .extract()
+                .response();
+    }
+
+
+    /**
+     * A method to delete filter
+     *
+     * @param filterIdKey
+     * @param filterIdValue
+     * @param cookieKey
+     * @param cookieValue
+     * @param endpoint
+     * @return
+     */
+    public Response deleteFilter(String filterIdKey, int filterIdValue,
+                                 String cookieKey, String cookieValue,
+                                 String endpoint) {
+        return given()
+                .spec(specSetup.requestSpecification())
+                .pathParam(filterIdKey, filterIdValue)
                 .header(cookieKey, cookieValue)
                 .when()
                 .delete(endpoint)

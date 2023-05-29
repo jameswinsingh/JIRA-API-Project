@@ -224,7 +224,7 @@ public class JiraApiValidation {
         String key = getTestData.getPropertyValue(TestData.ISSUE_KEY);
         String commentKey = getTestData.getPropertyValue(TestData.COMMENT_KEY);
         String cookieKey = SpecificationConstant.COOKIE_KEY;
-        String endpoint = Endpoint.UPDATE_COMMENT_ENDPOINT;
+        String endpoint = Endpoint.GET_COMMENT_ENDPOINT;
 
         Response response = apiActions.get(key, issueKey,
                 commentKey, commentId,
@@ -378,7 +378,7 @@ public class JiraApiValidation {
         int actualStatusCode = response.getStatusCode();
         boolean responseSchema = JsonSchemaValidator.validateJsonSchema(response, FilePathConstant.ADD_COMMENT_INVALID_DATA_SCHEMA_FILEPATH);
 
-        Assertion.verifyStatusCode(actualStatusCode, StatusCodeConstant.STATUS_C0DE_400, VerificationMessage.VERIFY_STATUS_CODE, report);
+        Assertion.verifyStatusCode(actualStatusCode, StatusCodeConstant.STATUS_C0DE_404, VerificationMessage.VERIFY_STATUS_CODE, report);
         Assertion.verifyBooleanValue(responseSchema, true, VerificationMessage.VERIFY_JSON_SCHEMA, report);
 
     }
