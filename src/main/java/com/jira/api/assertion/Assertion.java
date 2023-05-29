@@ -56,26 +56,6 @@ public class Assertion {
      * @param test                    instance of ExtentTest
      * @return status of the test
      */
-    public static boolean verifyItemsCountInStore(int actual, int expected, String verificationStepMessage, ExtentTest test) {
-        test.log(LogStatus.INFO, verificationStepMessage);
-        boolean status = false;
-        try {
-            Assert.assertEquals(actual, expected);
-            status = true;
-            test.log(LogStatus.PASS, "Actual Result :: " + actual + " == " + " Expected Result :: " + expected);
-        } catch (AssertionError assertionError) {
-            test.log(LogStatus.FAIL, "Actual Result :: " + actual + " == " + " Expected Result :: " + expected);
-        }
-        return status;
-    }
-
-    /**
-     * @param actual                  contains the actual result
-     * @param expected                contains the expected result
-     * @param verificationStepMessage contains the verification message
-     * @param test                    instance of ExtentTest
-     * @return status of the test
-     */
     public static boolean verifyInteger(int actual, int expected, String verificationStepMessage, ExtentTest test) {
         test.log(LogStatus.INFO, verificationStepMessage);
         boolean status = false;

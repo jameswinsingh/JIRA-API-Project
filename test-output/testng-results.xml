@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="8" passed="8" failed="0" skipped="0">
+<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-05-28T18:58:13 IST" name="Suite" finished-at="2023-05-28T18:58:21 IST" duration-ms="8343">
+  <suite started-at="2023-05-29T23:12:30 IST" name="Suite" finished-at="2023-05-29T23:12:36 IST" duration-ms="6285">
     <groups>
     </groups>
-    <test started-at="2023-05-28T18:58:13 IST" name="Test Jira API" finished-at="2023-05-28T18:58:21 IST" duration-ms="8343">
+    <test started-at="2023-05-29T23:12:30 IST" name="Test Jira API" finished-at="2023-05-29T23:12:36 IST" duration-ms="6285">
       <class name="com.jira.api.testscript.JiraApiTest">
-        <test-method is-config="true" signature="beforeSuite()[pri:0, instance:com.jira.api.testscript.JiraApiTest@424e1977]" started-at="2023-05-28T18:58:12 IST" name="beforeSuite" finished-at="2023-05-28T18:58:13 IST" duration-ms="351" status="PASS">
+        <test-method is-config="true" signature="beforeSuite()[pri:0, instance:com.jira.api.testscript.JiraApiTest@6aaceffd]" started-at="2023-05-29T23:12:30 IST" name="beforeSuite" finished-at="2023-05-29T23:12:30 IST" duration-ms="307" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeSuite -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.jira.api.testscript.JiraApiTest@424e1977]" started-at="2023-05-28T18:58:13 IST" name="beforeMethod" finished-at="2023-05-28T18:58:13 IST" duration-ms="11" status="PASS">
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.jira.api.testscript.JiraApiTest@6aaceffd]" started-at="2023-05-29T23:12:30 IST" name="beforeMethod" finished-at="2023-05-29T23:12:30 IST" duration-ms="9" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -22,155 +22,98 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="verifyLogin()[pri:0, instance:com.jira.api.testscript.JiraApiTest@424e1977]" started-at="2023-05-28T18:58:13 IST" name="verifyLogin" finished-at="2023-05-28T18:58:17 IST" duration-ms="4190" status="PASS">
+        <test-method signature="verifyLogin()[pri:0, instance:com.jira.api.testscript.JiraApiTest@6aaceffd]" started-at="2023-05-29T23:12:30 IST" name="verifyLogin" finished-at="2023-05-29T23:12:33 IST" duration-ms="2737" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyLogin -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.jira.api.testscript.JiraApiTest@424e1977]" started-at="2023-05-28T18:58:17 IST" name="afterMethod" finished-at="2023-05-28T18:58:17 IST" duration-ms="5" status="PASS">
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.jira.api.testscript.JiraApiTest@6aaceffd]" started-at="2023-05-29T23:12:33 IST" name="afterMethod" finished-at="2023-05-29T23:12:33 IST" duration-ms="3" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.jira.api.testscript.JiraApiTest@424e1977]" started-at="2023-05-28T18:58:17 IST" name="beforeMethod" finished-at="2023-05-28T18:58:17 IST" duration-ms="3" status="PASS">
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.jira.api.testscript.JiraApiTest@6aaceffd]" started-at="2023-05-29T23:12:33 IST" name="beforeMethod" finished-at="2023-05-29T23:12:33 IST" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.jira.api.testscript.JiraApiTest.verifyCreateIssue()]]>
+                <![CDATA[public void com.jira.api.testscript.JiraApiTest.verifyIssue()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="verifyCreateIssue()[pri:1, instance:com.jira.api.testscript.JiraApiTest@424e1977]" started-at="2023-05-28T18:58:17 IST" name="verifyCreateIssue" finished-at="2023-05-28T18:58:18 IST" duration-ms="449" status="PASS">
+        <test-method signature="verifyIssue()[pri:1, instance:com.jira.api.testscript.JiraApiTest@6aaceffd]" started-at="2023-05-29T23:12:33 IST" name="verifyIssue" finished-at="2023-05-29T23:12:34 IST" duration-ms="1273" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyCreateIssue -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.jira.api.testscript.JiraApiTest@424e1977]" started-at="2023-05-28T18:58:18 IST" name="afterMethod" finished-at="2023-05-28T18:58:18 IST" duration-ms="1" status="PASS">
+        </test-method> <!-- verifyIssue -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.jira.api.testscript.JiraApiTest@6aaceffd]" started-at="2023-05-29T23:12:34 IST" name="afterMethod" finished-at="2023-05-29T23:12:34 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method signature="verifyAddComment()[pri:2, instance:com.jira.api.testscript.JiraApiTest@424e1977]" started-at="2023-05-28T18:58:18 IST" name="verifyAddComment" finished-at="2023-05-28T18:58:19 IST" duration-ms="1568" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyAddComment -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.jira.api.testscript.JiraApiTest@424e1977]" started-at="2023-05-28T18:58:18 IST" name="beforeMethod" finished-at="2023-05-28T18:58:18 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.jira.api.testscript.JiraApiTest@6aaceffd]" started-at="2023-05-29T23:12:34 IST" name="beforeMethod" finished-at="2023-05-29T23:12:34 IST" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.jira.api.testscript.JiraApiTest.verifyAddComment()]]>
+                <![CDATA[public void com.jira.api.testscript.JiraApiTest.verifyComment()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.jira.api.testscript.JiraApiTest@424e1977]" started-at="2023-05-28T18:58:19 IST" name="beforeMethod" finished-at="2023-05-28T18:58:19 IST" duration-ms="2" status="PASS">
+        <test-method signature="verifyComment()[pri:2, instance:com.jira.api.testscript.JiraApiTest@6aaceffd]" started-at="2023-05-29T23:12:34 IST" name="verifyComment" finished-at="2023-05-29T23:12:36 IST" duration-ms="1703" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyComment -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.jira.api.testscript.JiraApiTest@6aaceffd]" started-at="2023-05-29T23:12:36 IST" name="afterMethod" finished-at="2023-05-29T23:12:36 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method signature="verifyFilterApi()[pri:3, instance:com.jira.api.testscript.JiraApiTest@6aaceffd]" started-at="2023-05-29T23:12:36 IST" name="verifyFilterApi" finished-at="2023-05-29T23:12:36 IST" duration-ms="156" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyFilterApi -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.jira.api.testscript.JiraApiTest@6aaceffd]" started-at="2023-05-29T23:12:36 IST" name="beforeMethod" finished-at="2023-05-29T23:12:36 IST" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.jira.api.testscript.JiraApiTest.verifyGetIssueApi()]]>
+                <![CDATA[public void com.jira.api.testscript.JiraApiTest.verifyFilterApi()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.jira.api.testscript.JiraApiTest@424e1977]" started-at="2023-05-28T18:58:19 IST" name="afterMethod" finished-at="2023-05-28T18:58:19 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.jira.api.testscript.JiraApiTest@6aaceffd]" started-at="2023-05-29T23:12:36 IST" name="afterMethod" finished-at="2023-05-29T23:12:36 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method signature="verifyGetIssueApi()[pri:3, instance:com.jira.api.testscript.JiraApiTest@424e1977]" started-at="2023-05-28T18:58:19 IST" name="verifyGetIssueApi" finished-at="2023-05-28T18:58:20 IST" duration-ms="1275" status="PASS">
+        <test-method signature="verifyNegativeTest()[pri:4, instance:com.jira.api.testscript.JiraApiTest@6aaceffd]" started-at="2023-05-29T23:12:36 IST" name="verifyNegativeTest" finished-at="2023-05-29T23:12:36 IST" duration-ms="336" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyGetIssueApi -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.jira.api.testscript.JiraApiTest@424e1977]" started-at="2023-05-28T18:58:20 IST" name="afterMethod" finished-at="2023-05-28T18:58:20 IST" duration-ms="1" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.jira.api.testscript.JiraApiTest@424e1977]" started-at="2023-05-28T18:58:20 IST" name="beforeMethod" finished-at="2023-05-28T18:58:20 IST" duration-ms="0" status="PASS">
+        </test-method> <!-- verifyNegativeTest -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.jira.api.testscript.JiraApiTest@6aaceffd]" started-at="2023-05-29T23:12:36 IST" name="beforeMethod" finished-at="2023-05-29T23:12:36 IST" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.jira.api.testscript.JiraApiTest.verifyUpdateCommentApi()]]>
+                <![CDATA[public void com.jira.api.testscript.JiraApiTest.verifyNegativeTest()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="verifyUpdateCommentApi()[pri:4, instance:com.jira.api.testscript.JiraApiTest@424e1977]" started-at="2023-05-28T18:58:20 IST" name="verifyUpdateCommentApi" finished-at="2023-05-28T18:58:21 IST" duration-ms="183" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyUpdateCommentApi -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.jira.api.testscript.JiraApiTest@424e1977]" started-at="2023-05-28T18:58:21 IST" name="afterMethod" finished-at="2023-05-28T18:58:21 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.jira.api.testscript.JiraApiTest@6aaceffd]" started-at="2023-05-29T23:12:36 IST" name="afterMethod" finished-at="2023-05-29T23:12:36 IST" duration-ms="3" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.jira.api.testscript.JiraApiTest@424e1977]" started-at="2023-05-28T18:58:21 IST" name="beforeMethod" finished-at="2023-05-28T18:58:21 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.jira.api.testscript.JiraApiTest.verifyGetCommentApi()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method signature="verifyGetCommentApi()[pri:5, instance:com.jira.api.testscript.JiraApiTest@424e1977]" started-at="2023-05-28T18:58:21 IST" name="verifyGetCommentApi" finished-at="2023-05-28T18:58:21 IST" duration-ms="162" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyGetCommentApi -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.jira.api.testscript.JiraApiTest@424e1977]" started-at="2023-05-28T18:58:21 IST" name="afterMethod" finished-at="2023-05-28T18:58:21 IST" duration-ms="1" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.jira.api.testscript.JiraApiTest@424e1977]" started-at="2023-05-28T18:58:21 IST" name="beforeMethod" finished-at="2023-05-28T18:58:21 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.jira.api.testscript.JiraApiTest.verifyDeleteCommentApi()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method signature="verifyDeleteCommentApi()[pri:6, instance:com.jira.api.testscript.JiraApiTest@424e1977]" started-at="2023-05-28T18:58:21 IST" name="verifyDeleteCommentApi" finished-at="2023-05-28T18:58:21 IST" duration-ms="111" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyDeleteCommentApi -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.jira.api.testscript.JiraApiTest@424e1977]" started-at="2023-05-28T18:58:21 IST" name="afterMethod" finished-at="2023-05-28T18:58:21 IST" duration-ms="1" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.jira.api.testscript.JiraApiTest@424e1977]" started-at="2023-05-28T18:58:21 IST" name="beforeMethod" finished-at="2023-05-28T18:58:21 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.jira.api.testscript.JiraApiTest.verifyDeleteIssueApi()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method signature="verifyDeleteIssueApi()[pri:7, instance:com.jira.api.testscript.JiraApiTest@424e1977]" started-at="2023-05-28T18:58:21 IST" name="verifyDeleteIssueApi" finished-at="2023-05-28T18:58:21 IST" duration-ms="275" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyDeleteIssueApi -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.jira.api.testscript.JiraApiTest@424e1977]" started-at="2023-05-28T18:58:21 IST" name="afterMethod" finished-at="2023-05-28T18:58:21 IST" duration-ms="1" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="afterClass()[pri:0, instance:com.jira.api.testscript.JiraApiTest@424e1977]" started-at="2023-05-28T18:58:21 IST" name="afterClass" finished-at="2023-05-28T18:58:22 IST" duration-ms="406" status="PASS">
+        <test-method is-config="true" signature="afterClass()[pri:0, instance:com.jira.api.testscript.JiraApiTest@6aaceffd]" started-at="2023-05-29T23:12:36 IST" name="afterClass" finished-at="2023-05-29T23:12:37 IST" duration-ms="400" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
       </class> <!-- com.jira.api.testscript.JiraApiTest -->
     </test> <!-- Test Jira API -->
   </suite> <!-- Suite -->
-  <suite started-at="2023-05-28T18:58:22 IST" name="TestNGLauncher" finished-at="2023-05-28T18:58:22 IST" duration-ms="0">
+  <suite started-at="2023-05-29T23:12:37 IST" name="TestNGLauncher" finished-at="2023-05-29T23:12:37 IST" duration-ms="0">
     <groups>
     </groups>
   </suite> <!-- TestNGLauncher -->

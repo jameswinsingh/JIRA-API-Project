@@ -11,11 +11,8 @@ public class FilePathConstant {
     public static final String RESOURCES_PATH = USER_DIR_PATH + File.separator + "src" + File.separator + "main"
             + File.separator + "resources" + File.separator;
     public static final String EXTENT_REPORT_PATH = USER_DIR_PATH + "/test-output/ExtentReport.html";
-    public static final String BASE_RESOURCE = RESOURCES_PATH + "baseresources" + File.separator;
     public static final String TESTNG_FILE_PATH = USER_DIR_PATH + File.separator + "testng.xml";
-    public static final String BASE_RESOURCE_FILE_PATH = BASE_RESOURCE + "BasicResources.properties";
     public static final String TEST_DATA = RESOURCES_PATH + "testdata" + File.separator;
-    public static final String TEST_DATA_FILEPATH = TEST_DATA + "data.properties";
     public static final String TEST_DATA_JSON_FILEPATH = TEST_DATA + "test_data.json";
     public static final String JSON_SCHEMA = RESOURCES_PATH + "jsonschemafile" + File.separator;
     public static final String LOGIN_SCHEMA_FILEPATH = JSON_SCHEMA + "login_response_json_Schema.json";

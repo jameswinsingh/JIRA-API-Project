@@ -7,6 +7,12 @@ import java.io.FileReader;
 
 public class ReadJsonDataUtil {
 
+    /**
+     *
+     * @param filePath contains file path of JSON file.
+     * @param content to read form JSON file.
+     * @return read data.
+     */
     public static Object readJsonData(String filePath, String content) {
         JSONParser parser = new JSONParser();
         Object dataToRead = null;

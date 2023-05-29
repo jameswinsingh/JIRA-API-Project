@@ -16,6 +16,9 @@ public class RequestSpecificationUtil {
 
     public static RequestSpecification specification;
 
+    /**
+     * A method to set up base uri & to log request, response body.
+     */
     public RequestSpecification requestSpecification() {
 
         try {

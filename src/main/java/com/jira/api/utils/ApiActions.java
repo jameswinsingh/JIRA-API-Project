@@ -64,6 +64,17 @@ public class ApiActions {
                 .response();
     }
 
+
+    /**
+     * @param issueIdKey   contains issue key
+     * @param issueIdValue contains issue value
+     * @param headerKey    contains content type key
+     * @param headerValue  contains content type value
+     * @param cookieKey    contains cookie key
+     * @param cookieValue  contains token
+     * @param requestBody  contains request payload.
+     * @param endpoints    contains the endpoint.
+     */
     public Response addComment(String issueIdKey, String issueIdValue, String headerKey,
                                String headerValue, String cookieKey, String cookieValue,
                                Object requestBody, String endpoints) {
@@ -84,11 +95,11 @@ public class ApiActions {
     /**
      * A method to create filter
      *
-     * @param cookieKey
-     * @param cookieValue
-     * @param requestBody
-     * @param endpoints
-     * @return
+     * @param headerKey   contains content type key
+     * @param headerValue contains content type value
+     * @param cookieKey   contains comment header key
+     * @param cookieValue contains token
+     * @param endpoints   contains endpoint
      */
     public Response post(String cookieKey, String cookieValue,
                          String headerKey, String headerValue,
@@ -132,14 +143,13 @@ public class ApiActions {
     /**
      * This method contain the get method to get comment API
      *
-     * @param issueKey
-     * @param issueKeyValue
-     * @param commentKey
-     * @param commentKeyValue
-     * @param cookieKey
-     * @param cookieValue
-     * @param endpoint
-     * @return
+     * @param issueKey        contains issue param key
+     * @param issueKeyValue   contains issue key
+     * @param commentKey      contains comment param key
+     * @param commentKeyValue contains comment id
+     * @param cookieKey       contains comment header key
+     * @param cookieValue     contains token
+     * @param endpoint        contains endpoint
      */
     public Response get(String issueKey, String issueKeyValue, String commentKey, int commentKeyValue,
                         String cookieKey, String cookieValue, String endpoint) {
@@ -159,14 +169,13 @@ public class ApiActions {
 
     /**
      * A method to getFilter
-
-     * @param cookieKey
-     * @param cookieValue
-     * @param endpoint
-     * @return
+     *
+     * @param cookieKey   contains comment header key
+     * @param cookieValue contains token
+     * @param endpoint    contains endpoint
      */
     public Response getFilter(String filterKey, int filterValue,
-                        String cookieKey, String cookieValue, String endpoint) {
+                              String cookieKey, String cookieValue, String endpoint) {
         return given()
                 .spec(specSetup.requestSpecification())
                 .pathParam(filterKey, filterValue)
@@ -179,26 +188,15 @@ public class ApiActions {
                 .response();
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    /**
+     * @param issueKey        contains issue param key
+     * @param issueKeyValue   contains issue key
+     * @param commentKey      contains comment param key
+     * @param commentKeyValue contains comment id
+     * @param cookieKey       contains comment header key
+     * @param cookieValue     contains token
+     * @param endpoint        contains endpoint
+     */
     public Response put(String issueKey, String issueKeyValue, String commentKey, int commentKeyValue,
                         String cookieKey, String cookieValue, Object payload, String endpoint) {
         return given()
@@ -246,14 +244,13 @@ public class ApiActions {
     /**
      * This method contain the delete method to delete comment
      *
-     * @param issueKey
-     * @param issueKeyValue
-     * @param commentKey
-     * @param commentKeyValue
-     * @param cookieKey
-     * @param cookieValue
-     * @param endpoint
-     * @return
+     * @param issueKey        contains issue param key
+     * @param issueKeyValue   contains issue key
+     * @param commentKey      contains comment param key
+     * @param commentKeyValue contains comment id
+     * @param cookieKey       contains comment header key
+     * @param cookieValue     contains token
+     * @param endpoint        contains the endpoint
      */
     public Response delete(String issueKey, String issueKeyValue, String commentKey, int commentKeyValue,
                            String cookieKey, String cookieValue, String endpoint) {
@@ -274,12 +271,11 @@ public class ApiActions {
     /**
      * delete issue
      *
-     * @param issueKey
-     * @param issueKeyValue
-     * @param cookieKey
-     * @param cookieValue
-     * @param endpoint
-     * @return
+     * @param issueKey      contains issue param key
+     * @param issueKeyValue contains issue key
+     * @param cookieKey     contains comment header key
+     * @param cookieValue   contains token
+     * @param endpoint      contains the endpoint
      */
     public Response delete(String issueKey, String issueKeyValue, String cookieKey, String cookieValue, String endpoint) {
         return given()
@@ -298,12 +294,11 @@ public class ApiActions {
     /**
      * A method to delete filter
      *
-     * @param filterIdKey
-     * @param filterIdValue
-     * @param cookieKey
-     * @param cookieValue
-     * @param endpoint
-     * @return
+     * @param filterIdKey   contains filter key
+     * @param filterIdValue contains filter value
+     * @param cookieKey     contains comment header key
+     * @param cookieValue   contains token
+     * @param endpoint      contains the endpoint
      */
     public Response deleteFilter(String filterIdKey, int filterIdValue,
                                  String cookieKey, String cookieValue,
