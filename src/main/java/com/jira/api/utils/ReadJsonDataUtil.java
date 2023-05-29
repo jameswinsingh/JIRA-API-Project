@@ -7,7 +7,7 @@ import java.io.FileReader;
 
 public class ReadJsonDataUtil {
 
-    public Object readJsonData(String filePath, String content) {
+    public static Object readJsonData(String filePath, String content) {
         JSONParser parser = new JSONParser();
         Object dataToRead = null;
         try {

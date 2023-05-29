@@ -1,8 +1,11 @@
 package com.jira.api.testscript;
 
 import com.jira.api.base.Base;
+import com.jira.api.constant.FilePathConstant;
 import com.jira.api.steps.JiraFilterApiValidation;
 import com.jira.api.steps.JiraIssueApiValidation;
+import com.jira.api.testdata.TestData;
+import com.jira.api.utils.ReadJsonDataUtil;
 import org.testng.annotations.Test;
 
 /**
@@ -27,7 +30,7 @@ public class JiraApiTest extends Base {
     }
 
     /**
-     * A method to verify crate issue, get issue & delete issue APIs .
+     * A method to verify create issue, get issue & delete issue APIs .
      */
     @Test(priority = 1)
     public void verifyIssue() {
@@ -39,7 +42,7 @@ public class JiraApiTest extends Base {
     }
 
     /**
-     * A method to verify crate issue, add comment, update comment, get comment, delete comment & delete issue APIs .
+     * A method to verify create issue, add comment, update comment, get comment, delete comment & delete issue APIs .
      */
     @Test(priority = 2)
     public void verifyComment() {
@@ -54,7 +57,7 @@ public class JiraApiTest extends Base {
     }
 
     /**
-     * A method to verify crate filter, get filter & delete filter APIs .
+     * A method to verify create filter, get filter & delete filter APIs.
      */
     @Test(priority = 3)
     public void verifyFilterApi() {
@@ -65,13 +68,17 @@ public class JiraApiTest extends Base {
 
     }
 
-    @Test(priority = 4, enabled = true)
+    /**
+     * A method to verify negative scenarios.
+     */
+    @Test(priority = 4)
     public void verifyNegativeTest() {
+        String commentId = (String) ReadJsonDataUtil.readJsonData(FilePathConstant.TEST_DATA_JSON_FILEPATH, TestData.INVALID_COMMENT_ID);
         jiraApi = new JiraIssueApiValidation(report);
         jiraApi.verifyInvalidLogin();
         jiraApi.verifyCreateIssueApiWithInvalidData(token);
         jiraApi.verifyAddCommentApiWithInvalidData(token, issueKey);
-        jiraApi.verifyModifyCommentApiWithInvalidData(token, issueKey, 4658);
+        jiraApi.verifyModifyCommentApiWithInvalidData(token, issueKey, Integer.parseInt(commentId));
 
     }
 }

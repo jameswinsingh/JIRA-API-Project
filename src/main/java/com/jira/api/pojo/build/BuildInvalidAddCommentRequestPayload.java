@@ -15,11 +15,11 @@ public class BuildInvalidAddCommentRequestPayload {
         AddCommentsRequestData addCommentsRequestData = new AddCommentsRequestData();
 
         Visibility visibility = new Visibility();
-        visibility.setType("role");
+        visibility.setType("rolesss");
         visibility.setValue("Administrators");
 
         addCommentsRequestData.setVisibility(visibility);
-        addCommentsRequestData.setBody(" ");
+        addCommentsRequestData.setBody("Update the comment ");
 
         return addCommentsRequestData;
     }

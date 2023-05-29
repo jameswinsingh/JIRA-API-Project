@@ -1,5 +1,6 @@
 {
   "issue_key": "key",
   "expected_token_name": "JSESSIONID",
-  "comment_key": "comment"
+  "comment_key": "comment",
+  "comment_id": "4658"
 }

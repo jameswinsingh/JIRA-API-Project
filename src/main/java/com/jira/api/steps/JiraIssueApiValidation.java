@@ -13,7 +13,7 @@ import com.jira.api.testdata.Endpoint;
 import com.jira.api.testdata.TestData;
 import com.jira.api.utils.ApiActions;
 import com.jira.api.utils.JsonSchemaValidator;
-import com.jira.api.utils.PropertyParser;
+import com.jira.api.utils.ReadJsonDataUtil;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 import io.restassured.path.json.JsonPath;
@@ -25,7 +25,6 @@ import io.restassured.response.Response;
 public class JiraIssueApiValidation {
 
     ExtentTest report;
-    PropertyParser getTestData = new PropertyParser(FilePathConstant.TEST_DATA_FILEPATH);
 
     public JiraIssueApiValidation(ExtentTest report) {
         this.report = report;
@@ -46,7 +45,7 @@ public class JiraIssueApiValidation {
         String jsonSchemaMessage = VerificationMessage.VERIFY_JSON_SCHEMA;
         String tokenNameMessage = VerificationMessage.VERIFY_TOKEN_NAME;
         String tokenValueMessage = VerificationMessage.TOKEN_IS_NOT_EMPTY;
-        String expectedTokenName = getTestData.getPropertyValue(TestData.TOKEN_NAME);
+        String expectedTokenName = (String) ReadJsonDataUtil.readJsonData(FilePathConstant.TEST_DATA_JSON_FILEPATH, TestData.TOKEN_NAME);
 
         Response response = apiActions.post(headerKey, headerValue,
                 contentType,
@@ -118,7 +117,7 @@ public class JiraIssueApiValidation {
 
         report.log(LogStatus.INFO, InfoMessage.ADD_COMMENT_TO_ISSUE);
 
-        String key = getTestData.getPropertyValue(TestData.ISSUE_KEY);
+        String key = (String) ReadJsonDataUtil.readJsonData(FilePathConstant.TEST_DATA_JSON_FILEPATH, TestData.ISSUE_KEY);
         String contentTypeKey = SpecificationConstant.CONTENT_TYPE_KEY;
         String contentTypeValue = SpecificationConstant.CONTENT_TYPE_VALUE;
         String cookieKey = SpecificationConstant.COOKIE_KEY;
@@ -154,7 +153,7 @@ public class JiraIssueApiValidation {
 
         report.log(LogStatus.INFO, InfoMessage.GET_ISSUE);
 
-        String key = getTestData.getPropertyValue(TestData.ISSUE_KEY);
+        String key = (String) ReadJsonDataUtil.readJsonData(FilePathConstant.TEST_DATA_JSON_FILEPATH, TestData.ISSUE_KEY);
         String cookieKey = SpecificationConstant.COOKIE_KEY;
         String endpoint = Endpoint.GET_ISSUE_ENDPOINT;
 
@@ -184,8 +183,9 @@ public class JiraIssueApiValidation {
 
         report.log(LogStatus.INFO, InfoMessage.MODIFY_COMMENT);
 
-        String key = getTestData.getPropertyValue(TestData.ISSUE_KEY);
-        String commentKey = getTestData.getPropertyValue(TestData.COMMENT_KEY);
+        String key = (String) ReadJsonDataUtil.readJsonData(FilePathConstant.TEST_DATA_JSON_FILEPATH, TestData.ISSUE_KEY);
+        String commentKey = (String) ReadJsonDataUtil.readJsonData(FilePathConstant.TEST_DATA_JSON_FILEPATH, TestData.COMMENT_KEY);
+
         String cookieKey = SpecificationConstant.COOKIE_KEY;
         String endpoint = Endpoint.UPDATE_COMMENT_ENDPOINT;
 
@@ -221,8 +221,8 @@ public class JiraIssueApiValidation {
 
         report.log(LogStatus.INFO, InfoMessage.GET_COMMENT);
 
-        String key = getTestData.getPropertyValue(TestData.ISSUE_KEY);
-        String commentKey = getTestData.getPropertyValue(TestData.COMMENT_KEY);
+        String key = (String) ReadJsonDataUtil.readJsonData(FilePathConstant.TEST_DATA_JSON_FILEPATH, TestData.ISSUE_KEY);
+        String commentKey = (String) ReadJsonDataUtil.readJsonData(FilePathConstant.TEST_DATA_JSON_FILEPATH, TestData.COMMENT_KEY);
         String cookieKey = SpecificationConstant.COOKIE_KEY;
         String endpoint = Endpoint.GET_COMMENT_ENDPOINT;
 
@@ -254,8 +254,8 @@ public class JiraIssueApiValidation {
 
         report.log(LogStatus.INFO, InfoMessage.DELETE_COMMENT);
 
-        String key = getTestData.getPropertyValue(TestData.ISSUE_KEY);
-        String commentKey = getTestData.getPropertyValue(TestData.COMMENT_KEY);
+        String key = (String) ReadJsonDataUtil.readJsonData(FilePathConstant.TEST_DATA_JSON_FILEPATH, TestData.ISSUE_KEY);
+        String commentKey = (String) ReadJsonDataUtil.readJsonData(FilePathConstant.TEST_DATA_JSON_FILEPATH, TestData.COMMENT_KEY);
         String cookieKey = SpecificationConstant.COOKIE_KEY;
         String endpoint = Endpoint.UPDATE_COMMENT_ENDPOINT;
 
@@ -280,7 +280,7 @@ public class JiraIssueApiValidation {
 
         report.log(LogStatus.INFO, InfoMessage.DELETE_ISSUE);
 
-        String key = getTestData.getPropertyValue(TestData.ISSUE_KEY);
+        String key = (String) ReadJsonDataUtil.readJsonData(FilePathConstant.TEST_DATA_JSON_FILEPATH, TestData.ISSUE_KEY);
         String cookieKey = SpecificationConstant.COOKIE_KEY;
         String endpoint = Endpoint.GET_ISSUE_ENDPOINT;
 
@@ -301,7 +301,7 @@ public class JiraIssueApiValidation {
      */
     public void verifyInvalidLogin() {
 
-        report.log(LogStatus.INFO, InfoMessage.LOGIN_JIRA);
+        report.log(LogStatus.INFO, InfoMessage.INVALID_LOGIN_JIRA);
 
         String headerKey = SpecificationConstant.CONNECTION_KEY;
         String headerValue = SpecificationConstant.CONNECTION_VALUE;
@@ -331,7 +331,7 @@ public class JiraIssueApiValidation {
      */
     public void verifyCreateIssueApiWithInvalidData(String token) {
 
-        report.log(LogStatus.INFO, InfoMessage.CREATE_NEW_ISSUE);
+        report.log(LogStatus.INFO, InfoMessage.CREATE_NEW_ISSUE_WITH_INVALID_DATA);
 
         String headerKey = SpecificationConstant.CONNECTION_KEY;
         String headerValue = SpecificationConstant.CONNECTION_VALUE;
@@ -361,9 +361,9 @@ public class JiraIssueApiValidation {
      */
     public void verifyAddCommentApiWithInvalidData(String token, String issueKey) {
 
-        report.log(LogStatus.INFO, InfoMessage.ADD_COMMENT_TO_ISSUE);
+        report.log(LogStatus.INFO, InfoMessage.ADD_COMMENT_TO_ISSUE_WITH_INVALID_DATA);
 
-        String key = getTestData.getPropertyValue(TestData.ISSUE_KEY);
+        String key = (String) ReadJsonDataUtil.readJsonData(FilePathConstant.TEST_DATA_JSON_FILEPATH, TestData.ISSUE_KEY);
         String contentTypeKey = SpecificationConstant.CONTENT_TYPE_KEY;
         String contentTypeValue = SpecificationConstant.CONTENT_TYPE_VALUE;
         String cookieKey = SpecificationConstant.COOKIE_KEY;
@@ -378,7 +378,7 @@ public class JiraIssueApiValidation {
         int actualStatusCode = response.getStatusCode();
         boolean responseSchema = JsonSchemaValidator.validateJsonSchema(response, FilePathConstant.ADD_COMMENT_INVALID_DATA_SCHEMA_FILEPATH);
 
-        Assertion.verifyStatusCode(actualStatusCode, StatusCodeConstant.STATUS_C0DE_404, VerificationMessage.VERIFY_STATUS_CODE, report);
+        Assertion.verifyStatusCode(actualStatusCode, StatusCodeConstant.STATUS_C0DE_400, VerificationMessage.VERIFY_STATUS_CODE, report);
         Assertion.verifyBooleanValue(responseSchema, true, VerificationMessage.VERIFY_JSON_SCHEMA, report);
 
     }
@@ -392,10 +392,10 @@ public class JiraIssueApiValidation {
      */
     public void verifyModifyCommentApiWithInvalidData(String token, String issueKey, int commentId) {
 
-        report.log(LogStatus.INFO, InfoMessage.MODIFY_COMMENT);
+        report.log(LogStatus.INFO, InfoMessage.MODIFY_COMMENT_WITH_INVALID_DATA);
 
-        String key = getTestData.getPropertyValue(TestData.ISSUE_KEY);
-        String commentKey = getTestData.getPropertyValue(TestData.COMMENT_KEY);
+        String key = (String) ReadJsonDataUtil.readJsonData(FilePathConstant.TEST_DATA_JSON_FILEPATH, TestData.ISSUE_KEY);
+        String commentKey = (String) ReadJsonDataUtil.readJsonData(FilePathConstant.TEST_DATA_JSON_FILEPATH, TestData.COMMENT_KEY);
         String cookieKey = SpecificationConstant.COOKIE_KEY;
         String endpoint = Endpoint.UPDATE_COMMENT_ENDPOINT;
 

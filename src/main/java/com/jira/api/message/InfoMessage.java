@@ -18,4 +18,9 @@ public class InfoMessage {
     public static final String DELETE_FILTER = "Test to delete filter";
 
 
+    public static final String INVALID_LOGIN_JIRA = "Test to verify Login API with invalid credentials";
+    public static final String CREATE_NEW_ISSUE_WITH_INVALID_DATA = "Test to verify create issue API with invalid data";
+    public static final String ADD_COMMENT_TO_ISSUE_WITH_INVALID_DATA = "Test to verify add comment API with invalid data";
+    public static final String MODIFY_COMMENT_WITH_INVALID_DATA = "Test to verify update comment API with invalid comment id";
+
 }
