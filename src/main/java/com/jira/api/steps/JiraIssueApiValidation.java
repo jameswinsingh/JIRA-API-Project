@@ -22,12 +22,12 @@ import io.restassured.response.Response;
 /**
  * A Class contains JIRA API tests.
  */
-public class JiraApiValidation {
+public class JiraIssueApiValidation {
 
     ExtentTest report;
     PropertyParser getTestData = new PropertyParser(FilePathConstant.TEST_DATA_FILEPATH);
 
-    public JiraApiValidation(ExtentTest report) {
+    public JiraIssueApiValidation(ExtentTest report) {
         this.report = report;
     }
 

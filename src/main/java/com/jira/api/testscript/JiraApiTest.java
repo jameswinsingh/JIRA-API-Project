@@ -1,8 +1,8 @@
 package com.jira.api.testscript;
 
 import com.jira.api.base.Base;
-import com.jira.api.steps.FilterApiValidation;
-import com.jira.api.steps.JiraApiValidation;
+import com.jira.api.steps.JiraFilterApiValidation;
+import com.jira.api.steps.JiraIssueApiValidation;
 import org.testng.annotations.Test;
 
 /**
@@ -10,121 +10,68 @@ import org.testng.annotations.Test;
  */
 public class JiraApiTest extends Base {
 
-    JiraApiValidation jiraApi;
+    JiraIssueApiValidation jiraApi;
     String token;
     String issueKey;
     int commentId;
     int filterId;
-
 
     /**
      * A method to verify the login API.
      */
     @Test
     public void verifyLogin() {
-        jiraApi = new JiraApiValidation(report);
+        jiraApi = new JiraIssueApiValidation(report);
         token = jiraApi.verifyLogin();
 
     }
 
     /**
-     * A method to verify the create issue API.
+     * A method to verify crate issue, get issue & delete issue APIs .
      */
     @Test(priority = 1)
-    public void verifyCreateIssue() {
-        jiraApi = new JiraApiValidation(report);
+    public void verifyIssue() {
+        jiraApi = new JiraIssueApiValidation(report);
         issueKey = jiraApi.verifyCreateIssueApi(token);
+        jiraApi.verifyGetIssueApi(token, issueKey);
+        jiraApi.verifyDeleteIssueApi(token, issueKey);
+
     }
 
     /**
-     * A method to verify the get issue API.
+     * A method to verify crate issue, add comment, update comment, get comment, delete comment & delete issue APIs .
      */
     @Test(priority = 2)
-    public void verifyGetIssueApi() {
-        jiraApi = new JiraApiValidation(report);
-        jiraApi.verifyGetIssueApi(token, issueKey);
+    public void verifyComment() {
+        jiraApi = new JiraIssueApiValidation(report);
+        issueKey = jiraApi.verifyCreateIssueApi(token);
+        commentId = jiraApi.verifyAddCommentApi(token, issueKey);
+        jiraApi.verifyModifyCommentApi(token, issueKey, commentId);
+        jiraApi.verifyGetCommentApi(token, issueKey, commentId);
+        jiraApi.verifyDeleteCommentApi(token, issueKey, commentId);
+        jiraApi.verifyDeleteIssueApi(token, issueKey);
+
     }
 
     /**
-     * A method to verify the add comment API.
+     * A method to verify crate filter, get filter & delete filter APIs .
      */
     @Test(priority = 3)
-    public void verifyAddComment() {
-        jiraApi = new JiraApiValidation(report);
-        commentId = jiraApi.verifyAddCommentApi(token, issueKey);
-    }
-
-    /**
-     * A method to verify the update comment API.
-     */
-    @Test(priority = 4)
-    public void verifyUpdateCommentApi() {
-        System.out.println(commentId);
-        jiraApi = new JiraApiValidation(report);
-        jiraApi.verifyModifyCommentApi(token, issueKey, commentId);
-    }
-
-    /**
-     * A method to verify the get comment API.
-     */
-    @Test(priority = 5)
-    public void verifyGetCommentApi() {
-        jiraApi = new JiraApiValidation(report);
-        jiraApi.verifyGetCommentApi(token, issueKey, commentId);
-    }
-
-    @Test(priority = 6, enabled = true)
-    public void verifyDeleteCommentApi() {
-        jiraApi = new JiraApiValidation(report);
-        jiraApi.verifyDeleteCommentApi(token, issueKey, commentId);
-    }
-
-    @Test(priority = 7, enabled = true)
-    public void verifyDeleteIssueApi() {
-        jiraApi = new JiraApiValidation(report);
-        jiraApi.verifyDeleteIssueApi(token, issueKey);
-    }
-
-    @Test(priority = 8)
-    public void verifyInvalidLoginTest() {
-        jiraApi = new JiraApiValidation(report);
-        jiraApi.verifyInvalidLogin();
-    }
-
-    @Test(priority = 9)
-    public void verifyCreateIssueWithInvalidDataTest() {
-        jiraApi = new JiraApiValidation(report);
-        jiraApi.verifyCreateIssueApiWithInvalidData(token);
-    }
-
-    @Test(priority = 10)
-    public void verifyAddCommentWithInvalidData() {
-        jiraApi = new JiraApiValidation(report);
-        jiraApi.verifyAddCommentApiWithInvalidData(token, issueKey);
-    }
-
-    @Test(priority = 11)
-    public void verifyUpdateCommentApiWithInvalidData() {
-        jiraApi = new JiraApiValidation(report);
-        jiraApi.verifyModifyCommentApiWithInvalidData(token, issueKey, 4658);
-    }
-
-    @Test(priority = 12)
-    public void verifyCreateFilterApi() {
-        FilterApiValidation filterApiValidation = new FilterApiValidation(report);
+    public void verifyFilterApi() {
+        JiraFilterApiValidation filterApiValidation = new JiraFilterApiValidation(report);
         filterId = filterApiValidation.verifyCreateFilterApi(token);
-    }
-
-    @Test(priority = 13)
-    public void verifyGetFilterApi() {
-        FilterApiValidation filterApiValidation = new FilterApiValidation(report);
         filterApiValidation.verifyGetFilterApi(filterId, token);
+        filterApiValidation.verifyDeleteFilterApi(filterId, token);
+
     }
 
-    @Test(priority = 14)
-    public void verifyDeleteFilterApi() {
-        FilterApiValidation filterApiValidation = new FilterApiValidation(report);
-        filterApiValidation.verifyDeleteFilter(filterId, token);
-    }
+    @Test(priority = 4, enabled = true)
+    public void verifyNegativeTest() {
+        jiraApi = new JiraIssueApiValidation(report);
+        jiraApi.verifyInvalidLogin();
+        jiraApi.verifyCreateIssueApiWithInvalidData(token);
+        jiraApi.verifyAddCommentApiWithInvalidData(token, issueKey);
+        jiraApi.verifyModifyCommentApiWithInvalidData(token, issueKey, 4658);
 
+    }
 }

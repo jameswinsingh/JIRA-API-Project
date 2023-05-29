@@ -1,0 +1,5 @@
+{
+  "issue_key": "key",
+  "expected_token_name": "JSESSIONID",
+  "comment_key": "comment"
+}

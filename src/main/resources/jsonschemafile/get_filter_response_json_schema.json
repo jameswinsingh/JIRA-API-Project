@@ -1,0 +1,159 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "self": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "owner": {
+      "type": "object",
+      "properties": {
+        "self": {
+          "type": "string"
+        },
+        "key": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "avatarUrls": {
+          "type": "object",
+          "properties": {
+            "48x48": {
+              "type": "string"
+            },
+            "24x24": {
+              "type": "string"
+            },
+            "16x16": {
+              "type": "string"
+            },
+            "32x32": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "48x48",
+            "24x24",
+            "16x16",
+            "32x32"
+          ]
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "self",
+        "key",
+        "name",
+        "avatarUrls",
+        "displayName",
+        "active"
+      ]
+    },
+    "jql": {
+      "type": "string"
+    },
+    "viewUrl": {
+      "type": "string"
+    },
+    "searchUrl": {
+      "type": "string"
+    },
+    "favourite": {
+      "type": "boolean"
+    },
+    "sharePermissions": {
+      "type": "array",
+      "items": {}
+    },
+    "editable": {
+      "type": "boolean"
+    },
+    "sharedUsers": {
+      "type": "object",
+      "properties": {
+        "size": {
+          "type": "integer"
+        },
+        "items": {
+          "type": "array",
+          "items": {}
+        },
+        "max-results": {
+          "type": "integer"
+        },
+        "start-index": {
+          "type": "integer"
+        },
+        "end-index": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "size",
+        "items",
+        "max-results",
+        "start-index",
+        "end-index"
+      ]
+    },
+    "subscriptions": {
+      "type": "object",
+      "properties": {
+        "size": {
+          "type": "integer"
+        },
+        "items": {
+          "type": "array",
+          "items": {}
+        },
+        "max-results": {
+          "type": "integer"
+        },
+        "start-index": {
+          "type": "integer"
+        },
+        "end-index": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "size",
+        "items",
+        "max-results",
+        "start-index",
+        "end-index"
+      ]
+    }
+  },
+  "required": [
+    "self",
+    "id",
+    "name",
+    "description",
+    "owner",
+    "jql",
+    "viewUrl",
+    "searchUrl",
+    "favourite",
+    "sharePermissions",
+    "editable",
+    "sharedUsers",
+    "subscriptions"
+  ]
+}

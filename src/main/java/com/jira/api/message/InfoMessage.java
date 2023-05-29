@@ -13,6 +13,9 @@ public class InfoMessage {
     public static final String GET_COMMENT = "Test to get newly added comment";
     public static final String DELETE_COMMENT = "Test to delete comment";
     public static final String DELETE_ISSUE = "Test to delete the created issue";
+    public static final String CREATE_FILTER = "Test to create filter";
+    public static final String GET_FILTER = "Test to get filter";
+    public static final String DELETE_FILTER = "Test to delete filter";
 
 
 }
