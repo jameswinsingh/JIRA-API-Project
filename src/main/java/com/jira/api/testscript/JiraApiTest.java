@@ -66,6 +66,7 @@ public class JiraApiTest extends Base {
         jiraApi = new JiraApiValidation(report);
         jiraApi.verifyInvalidLogin();
     }
+
     @Test(priority = 9)
     public void verifyCreateIssueWithInvalidDataTest() {
         jiraApi = new JiraApiValidation(report);

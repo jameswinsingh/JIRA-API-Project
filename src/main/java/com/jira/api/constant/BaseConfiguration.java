@@ -1,7 +1,7 @@
 package com.jira.api.constant;
 
 /**
- * A class contains the configuration key.
+ * A class contains the configuration base uri.
  */
 public class BaseConfiguration {
 

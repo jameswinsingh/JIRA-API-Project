@@ -1,5 +1,8 @@
 package com.jira.api.message;
 
+/**
+ * A Class contains info messages.
+ */
 public class InfoMessage {
 
     public static final String LOGIN_JIRA = "Test to Login JIRA";

@@ -10,11 +10,11 @@ import org.testng.Assert;
 public class Assertion {
 
     /**
-     * This method is to assert the String values.
-     *
-     * @param actual                  contains the actual result.
-     * @param expected                contains the expected result.
-     * @param verificationStepMessage contains the verification message.
+     * @param actual                  contains the actual result
+     * @param expected                contains the expected result
+     * @param verificationStepMessage contains the verification message
+     * @param test                    instance of ExtentTest
+     * @return status of the test
      */
     public static boolean verifyString(String actual, String expected, String verificationStepMessage, ExtentTest test) {
         test.log(LogStatus.INFO, verificationStepMessage);
@@ -30,11 +30,11 @@ public class Assertion {
     }
 
     /**
-     * This method is to assert the String values.
-     *
-     * @param actual                  contains the actual result.
-     * @param expected                contains the expected result.
-     * @param verificationStepMessage contains the verification message.
+     * @param actual                  contains the actual result
+     * @param expected                contains the expected result
+     * @param verificationStepMessage contains the verification message
+     * @param test                    instance of ExtentTest
+     * @return status of the test
      */
     public static boolean verifyStatusCode(int actual, int expected, String verificationStepMessage, ExtentTest test) {
         test.log(LogStatus.INFO, verificationStepMessage);
@@ -50,11 +50,11 @@ public class Assertion {
     }
 
     /**
-     * This method is to assert the String values.
-     *
-     * @param actual                  contains the actual result.
-     * @param expected                contains the expected result.
-     * @param verificationStepMessage contains the verification message.
+     * @param actual                  contains the actual result
+     * @param expected                contains the expected result
+     * @param verificationStepMessage contains the verification message
+     * @param test                    instance of ExtentTest
+     * @return status of the test
      */
     public static boolean verifyItemsCountInStore(int actual, int expected, String verificationStepMessage, ExtentTest test) {
         test.log(LogStatus.INFO, verificationStepMessage);
@@ -70,11 +70,11 @@ public class Assertion {
     }
 
     /**
-     * This method is to assert the String values.
-     *
-     * @param actual                  contains the actual result.
-     * @param expected                contains the expected result.
-     * @param verificationStepMessage contains the verification message.
+     * @param actual                  contains the actual result
+     * @param expected                contains the expected result
+     * @param verificationStepMessage contains the verification message
+     * @param test                    instance of ExtentTest
+     * @return status of the test
      */
     public static boolean verifyInteger(int actual, int expected, String verificationStepMessage, ExtentTest test) {
         test.log(LogStatus.INFO, verificationStepMessage);
@@ -89,6 +89,13 @@ public class Assertion {
         return status;
     }
 
+    /**
+     * @param actual                  contains the actual result
+     * @param expected                contains the expected result
+     * @param verificationStepMessage contains the verification message
+     * @param test                    instance of ExtentTest
+     * @return status of the test
+     */
     public static boolean verifyBooleanValue(boolean actual, boolean expected, String verificationStepMessage, ExtentTest test) {
         test.log(LogStatus.INFO, verificationStepMessage);
         boolean status = false;

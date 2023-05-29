@@ -1,5 +1,8 @@
 package com.jira.api.pojo.dto.createIssueRequestData;
 
+/**
+ * A Class contains serialization and deserialization methods .
+ */
 public class CreateIssueRequestData {
     private FieldsData fields;
 

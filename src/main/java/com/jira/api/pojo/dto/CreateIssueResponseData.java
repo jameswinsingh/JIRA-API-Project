@@ -1,5 +1,8 @@
 package com.jira.api.pojo.dto;
 
+/**
+ * A Class contains serialization and deserialization methods .
+ */
 public class CreateIssueResponseData {
 
     private String id;

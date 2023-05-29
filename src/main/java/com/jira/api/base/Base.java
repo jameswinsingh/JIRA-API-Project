@@ -15,12 +15,13 @@ public class Base {
     public static ExtentTest report;
     public static ExtentReports extent;
 
-
+    /**
+     * Method to generate report on the specific folder.
+     */
     @BeforeSuite
     public void beforeSuite() {
         extent = new ExtentReports(FilePathConstant.EXTENT_REPORT_PATH);
     }
-
 
     /**
      * A method to get the class name & method name of the current test.

@@ -1,5 +1,8 @@
 package com.jira.api.pojo.dto.createModifyCommentWithInvalidData;
 
+/**
+ * A Class contains serialization and deserialization methods .
+ */
 public class ModifyCommentsRequestData {
 
     private String body;

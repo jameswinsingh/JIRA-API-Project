@@ -1,5 +1,8 @@
 package com.jira.api.pojo.dto.loginResponseData;
 
+/**
+ * A Class contains serialization and deserialization methods .
+ */
 public class LoginResponseData {
 
     public LoginSessionData session;

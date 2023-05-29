@@ -5,6 +5,9 @@ import com.jira.api.pojo.dto.createIssueRequestData.FieldsData;
 import com.jira.api.pojo.dto.createIssueRequestData.IssueTypeData;
 import com.jira.api.pojo.dto.createIssueRequestData.ProjectData;
 
+/**
+ * A Class contains the setup of create issue request payload.
+ */
 public class BuildCreateIssueRequestPayload {
 
     public static CreateIssueRequestData createIssueRequestPayload() {

@@ -19,11 +19,12 @@ import com.relevantcodes.extentreports.LogStatus;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
-
+/**
+ * A Class contains JIRA API tests.
+ */
 public class JiraApiValidation {
 
     ExtentTest report;
-
     PropertyParser getTestData = new PropertyParser(FilePathConstant.TEST_DATA_FILEPATH);
 
     public JiraApiValidation(ExtentTest report) {
@@ -32,6 +33,9 @@ public class JiraApiValidation {
 
     ApiActions apiActions = new ApiActions();
 
+    /**
+     * A method to verify login API.
+     */
     public String verifyLogin() {
 
         report.log(LogStatus.INFO, InfoMessage.LOGIN_JIRA);
@@ -68,6 +72,12 @@ public class JiraApiValidation {
         return token;
     }
 
+    /**
+     * A method to verify create issue API.
+     *
+     * @param token contains the token.
+     * @return issue key
+     */
     public String verifyCreateIssueApi(String token) {
 
         report.log(LogStatus.INFO, InfoMessage.CREATE_NEW_ISSUE);
@@ -97,6 +107,13 @@ public class JiraApiValidation {
     }
 
 
+    /**
+     * A method to verify add comment API.
+     *
+     * @param token    contain the login token
+     * @param issueKey contains the created issue key
+     * @return contains created comment id
+     */
     public int verifyAddCommentApi(String token, String issueKey) {
 
         report.log(LogStatus.INFO, InfoMessage.ADD_COMMENT_TO_ISSUE);
@@ -127,6 +144,12 @@ public class JiraApiValidation {
 
     }
 
+    /**
+     * A method to verify get issue API.
+     *
+     * @param token    token contain the login token
+     * @param issueKey contains the created issue key
+     */
     public void verifyGetIssueApi(String token, String issueKey) {
 
         report.log(LogStatus.INFO, InfoMessage.GET_ISSUE);
@@ -149,6 +172,13 @@ public class JiraApiValidation {
 
     }
 
+    /**
+     * A method to verify modify comment API.
+     *
+     * @param token     token contain the login token.
+     * @param issueKey  contains the created issue key
+     * @param commentId contains the comment id
+     */
 
     public void verifyModifyCommentApi(String token, String issueKey, int commentId) {
 
@@ -180,6 +210,13 @@ public class JiraApiValidation {
 
     }
 
+    /**
+     * A method to verify get comment API.
+     *
+     * @param token     token contain the login token.
+     * @param issueKey  issueKey contains the created issue key.
+     * @param commentId contains the comment id.
+     */
     public void verifyGetCommentApi(String token, String issueKey, int commentId) {
 
         report.log(LogStatus.INFO, InfoMessage.GET_COMMENT);
@@ -206,6 +243,13 @@ public class JiraApiValidation {
         Assertion.verifyString(actualComment, TestData.RESPONSE_COMMENT, VerificationMessage.GET_UPDATE_COMMENT, report);
     }
 
+    /**
+     * A method to verify delete comment API.
+     *
+     * @param token     token contain the login token.
+     * @param issueKey  issueKey contains the created issue key.
+     * @param commentId contains the comment id.
+     */
     public void verifyDeleteCommentApi(String token, String issueKey, int commentId) {
 
         report.log(LogStatus.INFO, InfoMessage.DELETE_COMMENT);
@@ -226,6 +270,12 @@ public class JiraApiValidation {
         Assertion.verifyStatusCode(actualStatusCode, StatusCodeConstant.STATUS_C0DE_204, VerificationMessage.VERIFY_STATUS_CODE, report);
     }
 
+    /**
+     * A method to verify delete issue API.
+     *
+     * @param token    token contain the login token.
+     * @param issueKey issueKey contains the created issue key.
+     */
     public void verifyDeleteIssueApi(String token, String issueKey) {
 
         report.log(LogStatus.INFO, InfoMessage.DELETE_ISSUE);
@@ -246,6 +296,9 @@ public class JiraApiValidation {
 
     }
 
+    /**
+     * A method to verify login API with invalid credentials.
+     */
     public void verifyInvalidLogin() {
 
         report.log(LogStatus.INFO, InfoMessage.LOGIN_JIRA);
@@ -271,7 +324,11 @@ public class JiraApiValidation {
 
     }
 
-
+    /**
+     * A method to verify create issue API with invalid data.
+     *
+     * @param token contains the token.
+     */
     public void verifyCreateIssueApiWithInvalidData(String token) {
 
         report.log(LogStatus.INFO, InfoMessage.CREATE_NEW_ISSUE);
@@ -296,6 +353,12 @@ public class JiraApiValidation {
 
     }
 
+    /**
+     * A method to verify add comment API with invalid data.
+     *
+     * @param token    contain the login token
+     * @param issueKey contains the created issue key
+     */
     public void verifyAddCommentApiWithInvalidData(String token, String issueKey) {
 
         report.log(LogStatus.INFO, InfoMessage.ADD_COMMENT_TO_ISSUE);
@@ -318,9 +381,15 @@ public class JiraApiValidation {
         Assertion.verifyStatusCode(actualStatusCode, StatusCodeConstant.STATUS_C0DE_400, VerificationMessage.VERIFY_STATUS_CODE, report);
         Assertion.verifyBooleanValue(responseSchema, true, VerificationMessage.VERIFY_JSON_SCHEMA, report);
 
-
     }
 
+    /**
+     * A method to verify modify comment API with invalid data.
+     *
+     * @param token     token contain the login token.
+     * @param issueKey  contains the created issue key
+     * @param commentId contains the comment id
+     */
     public void verifyModifyCommentApiWithInvalidData(String token, String issueKey, int commentId) {
 
         report.log(LogStatus.INFO, InfoMessage.MODIFY_COMMENT);

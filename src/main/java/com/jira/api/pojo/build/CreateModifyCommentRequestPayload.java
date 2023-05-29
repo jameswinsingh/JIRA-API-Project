@@ -3,6 +3,9 @@ package com.jira.api.pojo.build;
 import com.jira.api.pojo.dto.CreateModifyCommentRequestData.ModifyCommentsRequestData;
 import com.jira.api.pojo.dto.CreateModifyCommentRequestData.Visibility;
 
+/**
+ * A Class contains the setup of modify comments request payload.
+ */
 public class CreateModifyCommentRequestPayload {
 
     public static ModifyCommentsRequestData modifyCommentRequestData()

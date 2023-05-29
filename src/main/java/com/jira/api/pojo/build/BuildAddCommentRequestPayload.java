@@ -3,8 +3,10 @@ package com.jira.api.pojo.build;
 import com.jira.api.pojo.dto.CreateAddCommentRequestData.AddCommentsRequestData;
 import com.jira.api.pojo.dto.CreateAddCommentRequestData.Visibility;
 
+/**
+ * A Class contains the setup of add comment request payload.
+ */
 public class BuildAddCommentRequestPayload {
-
 
     public static AddCommentsRequestData addCommentPayload() {
 

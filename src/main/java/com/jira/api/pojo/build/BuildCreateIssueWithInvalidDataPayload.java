@@ -6,6 +6,9 @@ import com.jira.api.pojo.dto.createIssueWithInvalidData.FieldsData;
 import com.jira.api.pojo.dto.createIssueWithInvalidData.IssueTypeData;
 import com.jira.api.pojo.dto.createIssueWithInvalidData.ProjectData;
 
+/**
+ * A Class contains the setup of create issue request payload with invalid data.
+ */
 public class BuildCreateIssueWithInvalidDataPayload {
 
     public static CreateIssueRequestData createIssueRequestPayload() {

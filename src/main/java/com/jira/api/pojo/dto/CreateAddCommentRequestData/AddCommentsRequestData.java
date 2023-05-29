@@ -1,5 +1,8 @@
 package com.jira.api.pojo.dto.CreateAddCommentRequestData;
 
+/**
+ * A Class contains serialization and deserialization methods .
+ */
 public class AddCommentsRequestData {
 
     private String body;

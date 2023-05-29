@@ -1,5 +1,8 @@
 package com.jira.api.message;
 
+/**
+ * A Class contains verification messages.
+ */
 public class VerificationMessage {
 
     public static final String VERIFY_STATUS_CODE = "Verify response status code";

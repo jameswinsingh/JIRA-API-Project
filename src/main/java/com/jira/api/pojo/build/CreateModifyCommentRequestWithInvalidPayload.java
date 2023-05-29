@@ -4,6 +4,9 @@ package com.jira.api.pojo.build;
 import com.jira.api.pojo.dto.createModifyCommentWithInvalidData.ModifyCommentsRequestData;
 import com.jira.api.pojo.dto.createModifyCommentWithInvalidData.Visibility;
 
+/**
+ * A Class contains the setup of modify comment request payload with invalid data.
+ */
 public class CreateModifyCommentRequestWithInvalidPayload {
 
     public static ModifyCommentsRequestData modifyCommentRequestData()

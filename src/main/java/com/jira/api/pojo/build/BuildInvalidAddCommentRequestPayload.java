@@ -6,6 +6,9 @@ import com.jira.api.pojo.dto.createAddCommentRequestInvalidData.Visibility;
 
 public class BuildInvalidAddCommentRequestPayload {
 
+    /**
+     * A Class contains the setup of add comment request payload with invalid data.
+     */
 
     public static AddCommentsRequestData addCommentPayload() {
 

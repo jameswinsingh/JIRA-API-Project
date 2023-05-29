@@ -2,6 +2,9 @@ package com.jira.api.pojo.build;
 
 import com.jira.api.pojo.dto.LoginRequestData;
 
+/**
+ * A Class contains the setup of login request payload.
+ */
 public class BuildLoginRequestPayload {
 
     public static LoginRequestData setUpLoginCredentials()
