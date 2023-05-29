@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "errorMessages": {
+      "type": "array",
+      "items": {}
+    },
+    "errors": {
+      "type": "object",
+      "properties": {
+        "comment": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "comment"
+      ]
+    }
+  },
+  "required": [
+    "errorMessages",
+    "errors"
+  ]
+}

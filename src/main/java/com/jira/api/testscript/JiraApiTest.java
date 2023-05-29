@@ -45,7 +45,6 @@ public class JiraApiTest extends Base {
 
     @Test(priority = 5)
     public void verifyGetCommentApi() {
-        System.out.println(commentId);
         jiraApi = new JiraApiValidation(report);
         jiraApi.verifyGetCommentApi(token, issueKey, commentId);
     }
@@ -62,4 +61,26 @@ public class JiraApiTest extends Base {
         jiraApi.verifyDeleteIssueApi(token, issueKey);
     }
 
+    @Test(priority = 8)
+    public void verifyInvalidLoginTest() {
+        jiraApi = new JiraApiValidation(report);
+        jiraApi.verifyInvalidLogin();
+    }
+    @Test(priority = 9)
+    public void verifyCreateIssueWithInvalidDataTest() {
+        jiraApi = new JiraApiValidation(report);
+        jiraApi.verifyCreateIssueApiWithInvalidData(token);
+    }
+
+    @Test(priority = 10)
+    public void verifyAddCommentWithInvalidData() {
+        jiraApi = new JiraApiValidation(report);
+        jiraApi.verifyAddCommentApiWithInvalidData(token, issueKey);
+    }
+
+    @Test(priority = 11)
+    public void verifyUpdateCommentApiWithInvalidData() {
+        jiraApi = new JiraApiValidation(report);
+        jiraApi.verifyModifyCommentApiWithInvalidData(token, issueKey, 4658);
+    }
 }

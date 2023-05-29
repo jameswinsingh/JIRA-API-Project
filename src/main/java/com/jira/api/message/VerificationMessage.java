@@ -9,4 +9,5 @@ public class VerificationMessage {
     public static final String UPDATE_COMMENT = "Verify whether comment is updated";
     public static final String GET_UPDATE_COMMENT = "Verify modified comment is updated successfully";
 
+
 }

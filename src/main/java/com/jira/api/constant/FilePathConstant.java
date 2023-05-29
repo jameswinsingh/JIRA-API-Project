@@ -23,6 +23,10 @@ public class FilePathConstant {
     public static final String GET_ISSUE_SCHEMA_FILEPATH = JSON_SCHEMA + "get_issue_response_json_schema.json";
     public static final String UPDATE_COMMENT_SCHEMA_FILEPATH = JSON_SCHEMA + "update_comment_json_schema.json";
     public static final String GET_COMMENT_SCHEMA_FILEPATH = JSON_SCHEMA + "get_comment_json_schema.json";
+    public static final String INVALID_LOGIN_SCHEMA_FILEPATH = JSON_SCHEMA + "invalid_login_json_schema.json";
+    public static final String CREATE_ISSUE_INVALID_DATA_SCHEMA_FILEPATH = JSON_SCHEMA + "create_issue_invalid_data_response.json";
+    public static final String ADD_COMMENT_INVALID_DATA_SCHEMA_FILEPATH = JSON_SCHEMA + "add_comment_invalid_data.json";
+    public static final String MODIFY_COMMENT_INVALID_DATA_SCHEMA_FILEPATH = JSON_SCHEMA + "modify_comment_invalid_data.json";
     public static final String LOG = RESOURCES_PATH + "logs" + File.separator;
     public static final String LOGGER_FILE_PATH = LOG + "request_response_logger.txt";
 

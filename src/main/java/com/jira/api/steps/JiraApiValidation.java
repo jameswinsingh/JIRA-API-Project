@@ -6,10 +6,7 @@ import com.jira.api.constant.SpecificationConstant;
 import com.jira.api.constant.StatusCodeConstant;
 import com.jira.api.message.InfoMessage;
 import com.jira.api.message.VerificationMessage;
-import com.jira.api.pojo.build.BuildAddCommentRequestPayload;
-import com.jira.api.pojo.build.BuildCreateIssueRequestPayload;
-import com.jira.api.pojo.build.BuildLoginRequestPayload;
-import com.jira.api.pojo.build.CreateModifyCommentRequestPayload;
+import com.jira.api.pojo.build.*;
 import com.jira.api.pojo.dto.CreateIssueResponseData;
 import com.jira.api.pojo.dto.loginResponseData.LoginResponseData;
 import com.jira.api.testdata.Endpoint;
@@ -248,4 +245,106 @@ public class JiraApiValidation {
         Assertion.verifyStatusCode(actualStatusCode, expectedStatusCode, VerificationMessage.VERIFY_STATUS_CODE, report);
 
     }
+
+    public void verifyInvalidLogin() {
+
+        report.log(LogStatus.INFO, InfoMessage.LOGIN_JIRA);
+
+        String headerKey = SpecificationConstant.CONNECTION_KEY;
+        String headerValue = SpecificationConstant.CONNECTION_VALUE;
+        String contentType = SpecificationConstant.CONTENT_TYPE_VALUE;
+        String jsonSchemaMessage = VerificationMessage.VERIFY_JSON_SCHEMA;
+
+
+        Response response = apiActions.post(headerKey, headerValue,
+                contentType,
+                BuildInvalidLoginRequestPayload.setUpLoginCredentials(),
+                Endpoint.LOGIN_ENDPOINT
+        );
+
+        boolean responseSchema = JsonSchemaValidator.validateJsonSchema(response, FilePathConstant.INVALID_LOGIN_SCHEMA_FILEPATH);
+        int statusCode = response.getStatusCode();
+
+        Assertion.verifyStatusCode(statusCode, StatusCodeConstant.STATUS_C0DE_401, VerificationMessage.VERIFY_STATUS_CODE, report);
+        Assertion.verifyBooleanValue(responseSchema, true, jsonSchemaMessage, report);
+
+
+    }
+
+
+    public void verifyCreateIssueApiWithInvalidData(String token) {
+
+        report.log(LogStatus.INFO, InfoMessage.CREATE_NEW_ISSUE);
+
+        String headerKey = SpecificationConstant.CONNECTION_KEY;
+        String headerValue = SpecificationConstant.CONNECTION_VALUE;
+        String cookieKey = SpecificationConstant.COOKIE_KEY;
+        String contentType = SpecificationConstant.CONTENT_TYPE_VALUE;
+
+        Response response = apiActions.post(headerKey, headerValue,
+                cookieKey, token,
+                contentType,
+                BuildCreateIssueWithInvalidDataPayload.createIssueRequestPayload(),
+                Endpoint.CREATE_ISSUE_ENDPOINT
+        );
+
+        int statusCode = response.getStatusCode();
+        boolean responseSchema = JsonSchemaValidator.validateJsonSchema(response, FilePathConstant.CREATE_ISSUE_INVALID_DATA_SCHEMA_FILEPATH);
+
+        Assertion.verifyStatusCode(statusCode, StatusCodeConstant.STATUS_C0DE_400, VerificationMessage.VERIFY_STATUS_CODE, report);
+        Assertion.verifyBooleanValue(responseSchema, true, VerificationMessage.VERIFY_JSON_SCHEMA, report);
+
+    }
+
+    public void verifyAddCommentApiWithInvalidData(String token, String issueKey) {
+
+        report.log(LogStatus.INFO, InfoMessage.ADD_COMMENT_TO_ISSUE);
+
+        String key = getTestData.getPropertyValue(TestData.ISSUE_KEY);
+        String contentTypeKey = SpecificationConstant.CONTENT_TYPE_KEY;
+        String contentTypeValue = SpecificationConstant.CONTENT_TYPE_VALUE;
+        String cookieKey = SpecificationConstant.COOKIE_KEY;
+
+        Response response = apiActions.addComment(key, issueKey,
+                contentTypeKey, contentTypeValue,
+                cookieKey, token,
+                BuildInvalidAddCommentRequestPayload.addCommentPayload(),
+                Endpoint.ADD_COMMENT_ENDPOINT
+        );
+
+        int actualStatusCode = response.getStatusCode();
+        boolean responseSchema = JsonSchemaValidator.validateJsonSchema(response, FilePathConstant.ADD_COMMENT_INVALID_DATA_SCHEMA_FILEPATH);
+
+        Assertion.verifyStatusCode(actualStatusCode, StatusCodeConstant.STATUS_C0DE_400, VerificationMessage.VERIFY_STATUS_CODE, report);
+        Assertion.verifyBooleanValue(responseSchema, true, VerificationMessage.VERIFY_JSON_SCHEMA, report);
+
+
+    }
+
+    public void verifyModifyCommentApiWithInvalidData(String token, String issueKey, int commentId) {
+
+        report.log(LogStatus.INFO, InfoMessage.MODIFY_COMMENT);
+
+        String key = getTestData.getPropertyValue(TestData.ISSUE_KEY);
+        String commentKey = getTestData.getPropertyValue(TestData.COMMENT_KEY);
+        String cookieKey = SpecificationConstant.COOKIE_KEY;
+        String endpoint = Endpoint.UPDATE_COMMENT_ENDPOINT;
+
+
+        Response response = apiActions.put(key, issueKey,
+                commentKey, commentId,
+                cookieKey, token,
+                CreateModifyCommentRequestWithInvalidPayload.modifyCommentRequestData(),
+                endpoint
+        );
+
+
+        boolean responseSchema = JsonSchemaValidator.validateJsonSchema(response, FilePathConstant.MODIFY_COMMENT_INVALID_DATA_SCHEMA_FILEPATH);
+        int actualStatusCode = response.getStatusCode();
+
+        Assertion.verifyStatusCode(actualStatusCode, StatusCodeConstant.STATUS_C0DE_404, VerificationMessage.VERIFY_STATUS_CODE, report);
+        Assertion.verifyBooleanValue(responseSchema, true, VerificationMessage.VERIFY_JSON_SCHEMA, report);
+
+    }
+
 }
