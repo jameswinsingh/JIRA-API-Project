@@ -58,10 +58,10 @@ public class JiraIssueApiValidation {
         String name = loginResponse.getSession().getName();
         String value = loginResponse.getSession().getValue();
         String token = name + "=" + value;
+
         int statusCode = response.getStatusCode();
         String actualTokenName = loginResponse.getSession().getName();
         boolean tokenIsNotEmpty = !loginResponse.getSession().getValue().isEmpty();
-
 
         Assertion.verifyStatusCode(statusCode, StatusCodeConstant.STATUS_C0DE_200, VerificationMessage.VERIFY_STATUS_CODE, report);
         Assertion.verifyBooleanValue(responseSchema, true, jsonSchemaMessage, report);
@@ -202,7 +202,6 @@ public class JiraIssueApiValidation {
 
         boolean responseSchema = JsonSchemaValidator.validateJsonSchema(response, FilePathConstant.UPDATE_COMMENT_SCHEMA_FILEPATH);
         int actualStatusCode = response.getStatusCode();
-
 
         Assertion.verifyStatusCode(actualStatusCode, StatusCodeConstant.STATUS_C0DE_200, VerificationMessage.VERIFY_STATUS_CODE, report);
         Assertion.verifyBooleanValue(responseSchema, true, VerificationMessage.VERIFY_JSON_SCHEMA, report);
@@ -386,27 +385,25 @@ public class JiraIssueApiValidation {
     /**
      * A method to verify modify comment API with invalid data.
      *
-     * @param token     token contain the login token.
-     * @param issueKey  contains the created issue key
-     * @param commentId contains the comment id
+     * @param token    token contain the login token.
+     * @param issueKey contains the created issue key
      */
-    public void verifyModifyCommentApiWithInvalidData(String token, String issueKey, int commentId) {
+    public void verifyModifyCommentApiWithInvalidData(String token, String issueKey) {
 
         report.log(LogStatus.INFO, InfoMessage.MODIFY_COMMENT_WITH_INVALID_DATA);
 
+        String commentId = (String) ReadJsonDataUtil.readJsonData(FilePathConstant.TEST_DATA_JSON_FILEPATH, TestData.INVALID_COMMENT_ID);
         String key = (String) ReadJsonDataUtil.readJsonData(FilePathConstant.TEST_DATA_JSON_FILEPATH, TestData.ISSUE_KEY);
         String commentKey = (String) ReadJsonDataUtil.readJsonData(FilePathConstant.TEST_DATA_JSON_FILEPATH, TestData.COMMENT_KEY);
         String cookieKey = SpecificationConstant.COOKIE_KEY;
         String endpoint = Endpoint.UPDATE_COMMENT_ENDPOINT;
 
-
         Response response = apiActions.put(key, issueKey,
-                commentKey, commentId,
+                commentKey, Integer.parseInt(commentId),
                 cookieKey, token,
                 CreateModifyCommentRequestWithInvalidPayload.modifyCommentRequestData(),
                 endpoint
         );
-
 
         boolean responseSchema = JsonSchemaValidator.validateJsonSchema(response, FilePathConstant.MODIFY_COMMENT_INVALID_DATA_SCHEMA_FILEPATH);
         int actualStatusCode = response.getStatusCode();

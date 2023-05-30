@@ -22,5 +22,4 @@ public class BuildAddCommentRequestPayload {
         return addCommentsRequestData;
     }
 
-
 }

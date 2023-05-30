@@ -28,7 +28,6 @@ public class RequestSpecificationUtil {
                         .addFilter(RequestLoggingFilter.logRequestTo(log))
                         .addFilter(ResponseLoggingFilter.logResponseTo(log))
                         .build();
-
             }
         } catch (FileNotFoundException fileNotFoundException) {
             fileNotFoundException.getLocalizedMessage();

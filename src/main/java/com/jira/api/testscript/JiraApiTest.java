@@ -1,11 +1,8 @@
 package com.jira.api.testscript;
 
 import com.jira.api.base.Base;
-import com.jira.api.constant.FilePathConstant;
 import com.jira.api.steps.JiraFilterApiValidation;
 import com.jira.api.steps.JiraIssueApiValidation;
-import com.jira.api.testdata.TestData;
-import com.jira.api.utils.ReadJsonDataUtil;
 import org.testng.annotations.Test;
 
 /**
@@ -23,7 +20,7 @@ public class JiraApiTest extends Base {
      * A method to verify the login API.
      */
     @Test
-    public void verifyLogin() {
+    public void verifyLoginApiTest() {
         jiraApi = new JiraIssueApiValidation(report);
         token = jiraApi.verifyLogin();
 
@@ -33,7 +30,7 @@ public class JiraApiTest extends Base {
      * A method to verify create issue, get issue & delete issue APIs .
      */
     @Test(priority = 1)
-    public void verifyIssue() {
+    public void verifyIssueApiTest() {
         jiraApi = new JiraIssueApiValidation(report);
         issueKey = jiraApi.verifyCreateIssueApi(token);
         jiraApi.verifyGetIssueApi(token, issueKey);
@@ -45,7 +42,7 @@ public class JiraApiTest extends Base {
      * A method to verify create issue, add comment, update comment, get comment, delete comment & delete issue APIs .
      */
     @Test(priority = 2)
-    public void verifyComment() {
+    public void verifyCommentApiTest() {
         jiraApi = new JiraIssueApiValidation(report);
         issueKey = jiraApi.verifyCreateIssueApi(token);
         commentId = jiraApi.verifyAddCommentApi(token, issueKey);
@@ -60,7 +57,7 @@ public class JiraApiTest extends Base {
      * A method to verify create filter, get filter & delete filter APIs.
      */
     @Test(priority = 3)
-    public void verifyFilterApi() {
+    public void verifyFilterApiTest() {
         JiraFilterApiValidation filterApiValidation = new JiraFilterApiValidation(report);
         filterId = filterApiValidation.verifyCreateFilterApi(token);
         filterApiValidation.verifyGetFilterApi(filterId, token);
@@ -73,12 +70,11 @@ public class JiraApiTest extends Base {
      */
     @Test(priority = 4)
     public void verifyNegativeTest() {
-        String commentId = (String) ReadJsonDataUtil.readJsonData(FilePathConstant.TEST_DATA_JSON_FILEPATH, TestData.INVALID_COMMENT_ID);
         jiraApi = new JiraIssueApiValidation(report);
         jiraApi.verifyInvalidLogin();
         jiraApi.verifyCreateIssueApiWithInvalidData(token);
         jiraApi.verifyAddCommentApiWithInvalidData(token, issueKey);
-        jiraApi.verifyModifyCommentApiWithInvalidData(token, issueKey, Integer.parseInt(commentId));
+        jiraApi.verifyModifyCommentApiWithInvalidData(token, issueKey);
 
     }
 }
