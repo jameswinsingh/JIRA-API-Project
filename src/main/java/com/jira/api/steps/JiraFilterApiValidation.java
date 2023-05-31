@@ -37,26 +37,32 @@ public class JiraFilterApiValidation {
      */
     public int verifyCreateFilterApi(String token) {
 
-        report.log(LogStatus.INFO, InfoMessage.CREATE_FILTER);
+        JsonPath jsonPath = null;
+        try {
 
-        String cookieKey = SpecificationConstant.COOKIE_KEY;
-        String contentTypeKey = SpecificationConstant.CONTENT_TYPE_KEY;
-        String contentTypeValue = SpecificationConstant.CONTENT_TYPE_VALUE;
-        String endpoint = Endpoint.CREATE_FILTER_ENDPOINT;
-        String jsonSchemaMessage = VerificationMessage.VERIFY_JSON_SCHEMA;
+            report.log(LogStatus.INFO, InfoMessage.CREATE_FILTER);
 
-        Response response = apiActions.post(cookieKey, token,
-                contentTypeKey, contentTypeValue,
-                BuildCreateFilterPayload.setCreateFilterRequestData(),
-                endpoint
-        );
-        JsonPath jsonPath = new JsonPath(response.asString());
+            String cookieKey = SpecificationConstant.COOKIE_KEY;
+            String contentTypeKey = SpecificationConstant.CONTENT_TYPE_KEY;
+            String contentTypeValue = SpecificationConstant.CONTENT_TYPE_VALUE;
+            String endpoint = Endpoint.CREATE_FILTER_ENDPOINT;
+            String jsonSchemaMessage = VerificationMessage.VERIFY_JSON_SCHEMA;
 
-        int statusCode = response.getStatusCode();
-        boolean responseSchema = JsonSchemaValidator.validateJsonSchema(response, FilePathConstant.CREATE_FILTER_SCHEMA_FILEPATH);
+            Response response = apiActions.post(cookieKey, token,
+                    contentTypeKey, contentTypeValue,
+                    BuildCreateFilterPayload.setCreateFilterRequestData(),
+                    endpoint
+            );
+            jsonPath = new JsonPath(response.asString());
 
-        Assertion.verifyStatusCode(statusCode, StatusCodeConstant.STATUS_C0DE_200, VerificationMessage.VERIFY_STATUS_CODE, report);
-        Assertion.verifyBooleanValue(responseSchema, true, jsonSchemaMessage, report);
+            int statusCode = response.getStatusCode();
+            boolean responseSchema = JsonSchemaValidator.validateJsonSchema(response, FilePathConstant.CREATE_FILTER_SCHEMA_FILEPATH);
+
+            Assertion.verifyStatusCode(statusCode, StatusCodeConstant.STATUS_C0DE_200, VerificationMessage.VERIFY_STATUS_CODE, report);
+            Assertion.verifyBooleanValue(responseSchema, true, jsonSchemaMessage, report);
+        } catch (Exception exception) {
+            report.log(LogStatus.FAIL, exception.fillInStackTrace());
+        }
         return jsonPath.getInt("id");
 
     }
@@ -69,23 +75,29 @@ public class JiraFilterApiValidation {
      */
     public void verifyGetFilterApi(int filterId, String token) {
 
-        report.log(LogStatus.INFO, InfoMessage.GET_FILTER);
+        try {
 
-        String cookieKey = SpecificationConstant.COOKIE_KEY;
-        String filterIdKey = TestData.FILTER_KEY;
-        String endpoint = Endpoint.DELETE_FILTER_ENDPOINT;
-        String jsonSchemaMessage = VerificationMessage.VERIFY_JSON_SCHEMA;
+            report.log(LogStatus.INFO, InfoMessage.GET_FILTER);
 
-        Response response = apiActions.getFilter(filterIdKey, filterId,
-                cookieKey, token,
-                endpoint
-        );
+            String cookieKey = SpecificationConstant.COOKIE_KEY;
+            String filterIdKey = TestData.FILTER_KEY;
+            String endpoint = Endpoint.DELETE_FILTER_ENDPOINT;
+            String jsonSchemaMessage = VerificationMessage.VERIFY_JSON_SCHEMA;
 
-        int statusCode = response.getStatusCode();
-        boolean responseSchema = JsonSchemaValidator.validateJsonSchema(response, FilePathConstant.GET_FILTER_SCHEMA_FILEPATH);
+            Response response = apiActions.getFilter(filterIdKey, filterId,
+                    cookieKey, token,
+                    endpoint
+            );
 
-        Assertion.verifyStatusCode(statusCode, StatusCodeConstant.STATUS_C0DE_200, VerificationMessage.VERIFY_STATUS_CODE, report);
-        Assertion.verifyBooleanValue(responseSchema, true, jsonSchemaMessage, report);
+            int statusCode = response.getStatusCode();
+            boolean responseSchema = JsonSchemaValidator.validateJsonSchema(response, FilePathConstant.GET_FILTER_SCHEMA_FILEPATH);
+
+            Assertion.verifyStatusCode(statusCode, StatusCodeConstant.STATUS_C0DE_200, VerificationMessage.VERIFY_STATUS_CODE, report);
+            Assertion.verifyBooleanValue(responseSchema, true, jsonSchemaMessage, report);
+
+        } catch (Exception exception) {
+            report.log(LogStatus.FAIL, exception.fillInStackTrace());
+        }
 
     }
 
@@ -97,19 +109,25 @@ public class JiraFilterApiValidation {
      */
     public void verifyDeleteFilterApi(int filterId, String token) {
 
-        report.log(LogStatus.INFO, InfoMessage.DELETE_FILTER);
+        try {
 
-        String cookieKey = SpecificationConstant.COOKIE_KEY;
-        String filterIdKey = TestData.FILTER_KEY;
-        String endpoint = Endpoint.DELETE_FILTER_ENDPOINT;
+            report.log(LogStatus.INFO, InfoMessage.DELETE_FILTER);
 
-        Response response = apiActions.deleteFilter(
-                filterIdKey, filterId,
-                cookieKey, token,
-                endpoint
-        );
+            String cookieKey = SpecificationConstant.COOKIE_KEY;
+            String filterIdKey = TestData.FILTER_KEY;
+            String endpoint = Endpoint.DELETE_FILTER_ENDPOINT;
 
-        int statusCode = response.getStatusCode();
-        Assertion.verifyStatusCode(statusCode, StatusCodeConstant.STATUS_C0DE_204, VerificationMessage.VERIFY_STATUS_CODE, report);
+            Response response = apiActions.deleteFilter(
+                    filterIdKey, filterId,
+                    cookieKey, token,
+                    endpoint
+            );
+
+            int statusCode = response.getStatusCode();
+            Assertion.verifyStatusCode(statusCode, StatusCodeConstant.STATUS_C0DE_204, VerificationMessage.VERIFY_STATUS_CODE, report);
+
+        } catch (Exception exception) {
+            report.log(LogStatus.FAIL, exception.fillInStackTrace());
+        }
     }
 }
