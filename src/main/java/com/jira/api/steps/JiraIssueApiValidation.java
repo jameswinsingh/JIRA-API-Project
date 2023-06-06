@@ -18,6 +18,7 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
+import org.testng.Assert;
 
 /**
  * A Class contains JIRA API tests.
@@ -37,7 +38,7 @@ public class JiraIssueApiValidation {
      */
     public String verifyLogin() {
 
-        String token = null;
+        String token;
         try {
             report.log(LogStatus.INFO, InfoMessage.LOGIN_JIRA);
 
@@ -69,10 +70,14 @@ public class JiraIssueApiValidation {
             Assertion.verifyBooleanValue(responseSchema, true, jsonSchemaMessage, report);
             Assertion.verifyString(actualTokenName, expectedTokenName, tokenNameMessage, report);
             Assertion.verifyBooleanValue(tokenIsNotEmpty, true, tokenValueMessage, report);
+            return token;
+
         } catch (Exception exception) {
+            Assert.fail(exception.fillInStackTrace().toString());
             report.log(LogStatus.FAIL, exception.fillInStackTrace());
+            return null;
         }
-        return token;
+
     }
 
     /**
